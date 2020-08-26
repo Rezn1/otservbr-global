@@ -2,9 +2,25 @@ if not GHOST_DETECTOR_MAP then
 	GHOST_DETECTOR_MAP = {}
 end
 
-ghost_detector_area = {
-	from = Position(32008, 32522, 8),
-	to = Position(32365, 32759, 10)
+--ghost_detector_area = {
+--	from = Position(32008, 32522, 8),
+--	to = Position(32365, 32759, 10)
+--}
+-- Changed. See: data/lib/core/position.lua
+
+ghost_detector_area = {	--n
+	{x = 32201, y = 32531, z = 8},
+	{x = 32280, y = 32544, z = 8},
+	{x = 32304, y = 32631, z = 8},
+	{x = 32183, y = 32644, z = 8},
+	{x = 32158, y = 32672, z = 9},
+	{x = 32187, y = 32538, z = 9},
+	{x = 32269, y = 32571, z = 9},
+	{x = 32306, y = 32643, z = 9},
+	{x = 32242, y = 32656, z = 10},
+	{x = 32128, y = 32713, z = 10},
+	{x = 32211, y = 32577, z = 10},
+	{x = 32306, y = 32584, z = 10},
 }
 
 local function getSearchString(fromPos, toPos)

@@ -52,6 +52,6 @@
 		<item name="nomad parchment" chance="220" />
 		<item name="potato" countmax="3" chance="4840" />
 		<item name="dirty turban" chance="1570" />
-		<item name="rope belt" chance="4040" />
+		<item name="rope belt" chance="4420" />
 	</loot>
 </monster>

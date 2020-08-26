@@ -35,22 +35,15 @@
 		<voice sentence="Death to the unbelievers!" />
 	</voices>
 	<loot>
-		<item id="2543" countmax="10" chance="90450" />	<!-- bolt -->
-		<item id="2148" countmax="30" chance="75410" />	<!-- gold coin -->
-		<item id="2681" chance="15400" />				<!-- grapes -->
-		<item id="7591" countmax="2" chance="12340" />	<!--great health potion -->
-		<item id="2666" chance="5000" />					<!-- meat -->
-		<item id="2455" chance="830" />					<!-- crossbow -->
-		<item id="2652" chance="760" />				<!-- Green Tunic -->
-		<item id="2164" countmax="2" chance="700" />	<!-- Might Ring -->
-		<item id="2120" chance="1000" />					<!-- Rope -->
-		<item id="2661" chance="1000" />					<!-- Scarf -->
-		<item id="1949" chance="830" />					<!-- Scroll -->
-		<item id="2145" chance="830" />					<!-- Small Diamond -->
-		<item id="2391" chance="130" />					<!-- War Hammer -->
-		<item id="2381" chance="830" />					<!-- Halberd -->
-		<item id="2515" chance="330" />					<!-- Guardian Shield -->
-		<item id="2477" chance="230" />					<!-- Knight Legs -->
-		<item id="2475" chance="200" />					<!-- Warrior Helmet -->
-	</loot>
+    <item id="2148" countmax="70" chance="100000"/><!-- GOLD COIN -->
+    <item id="2145" chance="2350" countmax="1"/><!-- SMALL DIAMOND  -->
+    <item id="7591" chance="5490" countmax="1"/><!-- GREAT HEALTH POTION -->
+    <item id="2149" chance="2370" countmax="1"/><!-- SMALL EMERALD  -->
+    <item id="2666" countmax="3" chance="12650"/><!-- MEAT -->
+    <item id="2661" chance="1220" countmax="1"/><!-- SCARF -->
+    <item id="2114" chance="100" countmax="1"/><!-- PIGGY BANK -->
+    <item id="10556" chance="4530" countmax="1"/><!-- CULTISH ROBBE -->
+    <item name="small amethyst" chance="2470"/>
+    <item name="might ring" chance="130"/>
+  </loot>
 </monster>

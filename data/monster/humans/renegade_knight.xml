@@ -44,23 +44,20 @@
 		<voice sentence="A challenge at last!" />
 	</voices>
 	<loot>
-		<item id="2544" countmax="10" chance="90450" />	<!-- bolt -->
-		<item id="2148" countmax="30" chance="75410" />	<!-- gold coin -->
-		<item id="2681" chance="1210" />	<!-- Grapes -->
-		<item id="7591" chance="1210" />	<!-- Great Health Potion -->
-		<item id="2666" countmax="2" chance="1210" />	<!-- Meat -->
-		<item id="7364" countmax="4" chance="1210" />	<!-- Sniper Arrow -->
-		<item id="2487" chance="210" />	<!-- Crown Armor -->
-		<item id="2491" chance="310" />	<!-- Crown Helmet -->
-		<item id="2519" chance="210" />	<!-- Crown Shield -->
-		<item id="2488" chance="110" />	<!-- Crown Legs -->
-		<item id="2392" chance="310" />	<!-- Fire Sword -->
-		<item id="2381" chance="1610" />	<!-- Halberd -->
-		<item id="2744" chance="510" />	<!-- Red Rose -->
-		<item id="2120" chance="1510" />	<!-- Rope -->
-		<item id="1949" chance="910" />	<!-- Scroll -->
-		<item id="12466" chance="910" />	<!-- Scroll of Heroic Deeds -->
-		<item id="12406" chance="910" />	<!-- Small Notebook -->
-		<item id="2121" chance="510" />	<!-- Wedding Ring -->
-	</loot>
+    <item id="2148" countmax="70" chance="100000"/>
+    <!-- gold coin -->
+    <item id="7591" countmax="1" chance="7519"/>
+    <!--great health potion -->
+    <item id="2666" chance="8500"/>
+    <!-- meat -->
+    <item id="2164" countmax="1" chance="490"/>
+    <!-- Might Ring -->
+    <item id="2661" chance="239" countmax="1"/>
+    <!-- Scarf -->
+    <item id="2145" chance="1940" countmax="1"/>
+    <!-- Small Diamond -->
+    <item name="cultish robe" chance="5100"/>
+    <item name="small emerald" chance="3880"/>
+    <item name="small amethyst" chance="2180"/>
+  </loot>
 </monster>

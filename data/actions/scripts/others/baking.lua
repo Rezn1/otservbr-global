@@ -5,8 +5,8 @@ local dough = {6277, 8846}
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 2692 and isInArray(liquidContainers, target.itemid) then
 		if target.type == 1 then
-			item:transform(item.itemid, item.type - 1)
-			player:addItem(2693, 1)
+			item:transform(2693)	--item:transform(item.itemid, item.type - 1)
+			--player:addItem(2693, 1)	--n
 			target:transform(target.itemid, 0)
 		elseif target.type == 6 then
 			item:transform(item.itemid, item.type - 1)
@@ -16,7 +16,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	elseif isInArray(dough, item.itemid) then
 		if target.itemid == 1786 then
 			item:transform(item.itemid + 1)
-		elseif target.itemid == 6574 then
+	elseif target.itemid == 6574 then
 			item:transform(8846)
 			target:remove()
 		end

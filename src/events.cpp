@@ -44,7 +44,7 @@ bool Events::load()
 	info = {};
 
 	std::set<std::string> classes;
-	for (auto eventNode : doc.child("events").children()) {
+	for (auto eventNode : doc.child("events").children("event")) {
 		if (!eventNode.attribute("enabled").as_bool()) {
 			continue;
 		}

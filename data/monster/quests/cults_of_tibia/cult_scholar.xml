@@ -18,8 +18,17 @@
 		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="10" max="-580" />
-	</attacks>
+    <attack name="melee" interval="2000" min="0" max="200"/>
+		<attack name="poisoncondition" interval="2000" chance="25" length="8" spread="0" min="-150" max="-200">
+			<attribute key="areaEffect" value="greenspark"/>
+		</attack>
+	<attack name="melee" interval="2000" min="-150" max="-200" chance="15"/>
+	<attack name="death" interval="2000" chance="7" range="7" min="-150" max="-200">
+		<attribute key="shootEffect" value="suddendeath"/>
+		<attribute key="areaEffect" value="smallclouds"/>
+		<attribute key="areaEffect" value="mortarea"/>
+	</attack>
+  </attacks>
 	<defenses armor="35" defense="50">
 		<defense name="healing" interval="4000" chance="25" min="20" max="80">
 			<attribute key="areaEffect" value="blueshimmer" />
@@ -32,22 +41,14 @@
 		<voice sentence="The Secrets are ours alone!" />
 	</voices>
 	<loot>
-		<item id="2543" countmax="10" chance="90450" />	<!-- bolt -->
-		<item id="2148" countmax="30" chance="75410" />	<!-- gold coin -->
-		<item id="2681" chance="15400" />				<!-- grapes -->
-		<item id="7591" countmax="2" chance="12340" />	<!--great health potion -->
-		<item id="2666" chance="5000" />					<!-- meat -->
-		<item id="2455" chance="830" />					<!-- crossbow -->
-		<item id="2652" chance="760" />				<!-- Green Tunic -->
-		<item id="2164" countmax="2" chance="700" />	<!-- Might Ring -->
-		<item id="2120" chance="1000" />					<!-- Rope -->
-		<item id="2661" chance="1000" />					<!-- Scarf -->
-		<item id="1949" chance="830" />					<!-- Scroll -->
-		<item id="2145" chance="830" />					<!-- Small Diamond -->
-		<item id="2391" chance="130" />					<!-- War Hammer -->
-		<item id="2381" chance="830" />					<!-- Halberd -->
-		<item id="2515" chance="330" />					<!-- Guardian Shield -->
-		<item id="2477" chance="230" />					<!-- Knight Legs -->
-		<item id="2475" chance="200" />					<!-- Warrior Helmet -->
-	</loot>
+    <item id="2148" countmax="70" chance="100000"/><!-- gold coin -->
+    <item id="7591" countmax="1" chance="7519"/><!--great health potion -->
+    <item id="2666" chance="8500"/><!-- meat -->
+    <item id="2164" countmax="1" chance="490"/><!-- Might Ring -->
+    <item id="2661" chance="239" countmax="1"/><!-- Scarf -->
+    <item id="2145" chance="1940" countmax="1"/><!-- Small Diamond -->
+    <item name="cultish robe" chance="5100"/>
+    <item name="small emerald" chance="3880"/>
+    <item name="small amethyst" chance="2180"/>
+  </loot>
 </monster>

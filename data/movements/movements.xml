@@ -1507,10 +1507,10 @@
 	</movevent>
 	<movevent event="DeEquip" itemid="30884" slot="legs" function="onDeEquipItem"/>
 	<movevent event="Equip" itemid="2477" slot="legs" function="onEquipItem">
-		<vocation name="Knight"/>
+		<!--<vocation name="Knight"/>
 		<vocation name="Elite Knight" showInDescription="0"/>
 		<vocation name="Paladin"/>
-		<vocation name="Royal Paladin" showInDescription="0"/>
+		<vocation name="Royal Paladin" showInDescription="0"/>-->
 	</movevent>
 	<movevent event="DeEquip" itemid="2477" slot="legs" function="onDeEquipItem"/>
 	<movevent event="Equip" itemid="2488" slot="legs" function="onEquipItem">

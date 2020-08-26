@@ -807,7 +807,7 @@ tasks =
 	},
 }
 
-tasksByPlayer = 3
+tasksByPlayer = 10
 repeatTimes = 3
 
 function Player.getPawAndFurRank(self)
@@ -846,12 +846,12 @@ function Player.getTasks(self)
 	for k, v in pairs(tasks) do
 		if self:getStorageValue(QUESTSTORAGE_BASE + k) < 1 and self:getStorageValue(REPEATSTORAGE_BASE + k) < repeatTimes then
 			able[k] = true
-			if self:getLevel() < v.level[1] or self:getLevel() > v.level[2] then
-				able[k] = false
-			end
-			if v.storage and self:getStorageValue(v.storage[1]) < v.storage[2] then
-				able[k] = false
-			end
+			--if self:getLevel() < v.level[1] or self:getLevel() > v.level[2] then
+			--	able[k] = false
+			--end
+			--if v.storage and self:getStorageValue(v.storage[1]) < v.storage[2] then
+			--	able[k] = false
+			--end
 
 			if v.rank then
 				if self:getPawAndFurRank() < v.rank then
@@ -901,7 +901,7 @@ function Player.canStartTask(self, name, table)
 	if self:getStorageValue(REPEATSTORAGE_BASE +  id) >= repeatTimes or v.norepeatable and self:getStorageValue(REPEATSTORAGE_BASE +  id) > 0 then
 		return false
 	end
-	if v.level and self:getLevel() >= v.level[1] and self:getLevel() <= v.level[2] then
+	--if v.level and self:getLevel() >= v.level[1] and self:getLevel() <= v.level[2] then
 		if v.premium then
 			if self:isPremium() then
 				if v.rank then
@@ -923,7 +923,7 @@ function Player.canStartTask(self, name, table)
 		else
 			return true
 		end
-	end
+	--end
 	return false
 end
 

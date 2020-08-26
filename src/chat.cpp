@@ -294,7 +294,7 @@ bool Chat::load()
 		return false;
 	}
 
-	for (auto channelNode : doc.child("channels").children()) {
+	for (auto channelNode : doc.child("channels").children("channel")) {
 		uint16_t channelId = pugi::cast<uint16_t>(channelNode.attribute("id").value());
 		std::string channelName = channelNode.attribute("name").as_string();
 		bool isPublic = channelNode.attribute("public").as_bool();

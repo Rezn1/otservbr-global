@@ -135,21 +135,27 @@ function Position.getFreePosition(from, to)
 	return result
 end
 
-function Position.getFreeSand()
-	local from, to = ghost_detector_area.from, ghost_detector_area.to
-	local result, tries = Position(from.x, from.y, from.z), 0
-	repeat
-		local x, y, z = math.random(from.x, to.x), math.random(from.y, to.y), math.random(from.z, to.z)
-		result = Position(x, y, z)
-		tries = tries + 1
-		if tries >= 50 then
-			return result
-		end
+--function getFreeSand()
+--    local from, to = ghost_detector_area.from, ghost_detector_area.to
+--    local result, tries = Position(from.x, from.y, from.z), 0
+--    repeat
+--        local x, y, z = math.random(from.x, to.x), math.random(from.y, to.y), math.random(from.z, to.z)
+--        result = Position(x, y, z)
+--        tries = tries + 1
+--        if tries >= 50 then
+								--What a fucking idiot wrote that?!
+								--If it takes too long, change it!
+								--Don't fucking return wrong result!
+--            return result
+--        end
+--    until result:isWalkable() and Tile(result):getGround():getName() == "grey sand"
+--    return result
+--end
 
-		local tile = Tile(result)
-
-	until tile and tile:isWalkable(false, false, false, false, true) and tile:getGround():getName() == "grey sand"
-	return result
+function getFreeSand()
+	local i = math.random(1,#ghost_detector_area)
+	local result = ghost_detector_area[i]
+	return Position(result.x, result.y, result.z)
 end
 
 function Position.getDirectionTo(pos1, pos2)

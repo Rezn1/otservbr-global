@@ -2657,6 +2657,9 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("Player", "isOffline", LuaScriptInterface::luaPlayerIsOffline);
 
+  registerMethod("Player", "setPzRegenHealth", LuaScriptInterface::luaPlayerSetPzRegenHealth);
+  registerMethod("Player", "setPzRegenMana", LuaScriptInterface::luaPlayerSetPzRegenMana);
+
 	// Monster
 	registerClass("Monster", "Creature", LuaScriptInterface::luaMonsterCreate);
 	registerMetaMethod("Monster", "__eq", LuaScriptInterface::luaUserdataCompare);
@@ -11521,6 +11524,33 @@ int LuaScriptInterface::luaPlayerIsOffline(lua_State* L)
 	}
 
 	return 1;
+}
+
+int LuaScriptInterface::luaPlayerSetPzRegenHealth(lua_State* L)
+{
+  Player* player = getUserdata<Player>(L, 1);
+  if (player) {
+    uint8_t regen = getNumber<uint8_t>(L, 2);
+    player->setPzRegenHealth(regen);
+    pushBoolean(L, true);
+  } else {
+    lua_pushnil(L);
+  }
+  return 1;
+}
+
+int LuaScriptInterface::luaPlayerSetPzRegenMana(lua_State* L)
+{
+  Player* player = getUserdata<Player>(L, 1);
+  if (player) {
+    uint8_t regen = getNumber<uint8_t>(L, 2);
+    player->setPzRegenMana(regen);
+    pushBoolean(L, true);
+  }
+  else {
+    lua_pushnil(L);
+  }
+  return 1;
 }
 
 // Monster

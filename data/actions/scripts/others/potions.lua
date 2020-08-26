@@ -237,7 +237,10 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		player:addAchievementProgress('Potion Addict', 100000)
 		target:say("Aaaah...", TALKTYPE_MONSTER_SAY)
 		player:addItem(potion.flask, 1)
-		player:addCondition(exhaust)
+		local playerPos = player:getPosition()
+		if not Tile(playerPos):hasFlag(TILESTATE_PROTECTIONZONE) then
+			player:addCondition(exhaust)
+		end
 		player:setStorageValue(38412, player:getStorageValue(38412)+1)
 	end
 

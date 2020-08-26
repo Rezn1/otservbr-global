@@ -1460,6 +1460,15 @@ class Player final : public Creature, public Cylinder
 
 		uint16_t getFreeBackpackSlots() const;
 
+    uint8_t getPzRegenHealth() const { return pzRegenHealth; } //n
+    void setPzRegenHealth(uint8_t regen) {
+      pzRegenHealth = regen;
+    }
+    uint8_t getPzRegenMana() const { return pzRegenMana; }
+    void setPzRegenMana(uint8_t regen) {
+      pzRegenMana = regen;
+    }
+
 
   /*****************************************************************************
    * Interfaces
@@ -1677,6 +1686,9 @@ class Player final : public Creature, public Cylinder
 		bool quickLootFallbackToMainContainer = false;
 		bool logged = false;
 		bool scheduledSaleUpdate = false;
+
+    uint8_t pzRegenHealth = 0; //n
+    uint8_t pzRegenMana = 0;
 
 		static uint32_t playerAutoID;
 

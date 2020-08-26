@@ -460,8 +460,16 @@ void Weapon::onUsedWeapon(Player* player, Item* item, Tile* destTile) const
 	if (!player->hasFlag(PlayerFlag_NotGainSkill)) {
 		skills_t skillType;
 		uint32_t skillPoint;
+		//n: all weapon skills advance at the same time
 		if (getSkillType(player, item, skillType, skillPoint)) {
-			player->addSkillAdvance(skillType, skillPoint);
+			if(skillType==SKILL_CLUB || skillType==SKILL_SWORD || skillType==SKILL_AXE || skillType==SKILL_DISTANCE){
+				player->addSkillAdvance(SKILL_CLUB, skillPoint);
+				player->addSkillAdvance(SKILL_SWORD, skillPoint);
+				player->addSkillAdvance(SKILL_AXE, skillPoint);
+				player->addSkillAdvance(SKILL_DISTANCE, skillPoint);
+			}
+			else
+				player->addSkillAdvance(skillType, skillPoint);
 		}
 	}
 

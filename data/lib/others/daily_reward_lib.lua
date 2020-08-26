@@ -117,7 +117,7 @@ local function regenSoul(id, soulAmount, delay)
 		return false
 	end
 	local currentSoul = player:getSoul()
-	local maxSoul = 100
+	local maxSoul = player:getMaxSoul()
 	if currentSoul >= maxSoul then
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, "You are no longer regenerating soul because you have reached the max soul amount.")
 		stopEvent(staminaEvent)
@@ -127,7 +127,7 @@ local function regenSoul(id, soulAmount, delay)
 	player:addSoul(soulAmount)
 	player:sendTextMessage(MESSAGE_STATUS_SMALL, "One soul point has been restored.")
 	stopEvent(soulEvent)
-	soulRegen[id] = addEvent(regenStamina, delay, id, soulAmount, delay)
+	soulRegen[id] = addEvent(regenSoul, delay, id, soulAmount, delay)
 	return true
 end
 
@@ -208,8 +208,27 @@ function Player.loadDailyRewardBonuses(self)
 	if streakLevel >= DAILY_REWARD_SOUL_REGENERATION then
 		local soulEvent = soulRegen[self:getId()]
 		if not soulEvent then
-			local delay = 1
-			soulRegen[self:getId()] = addEvent(regenSoul, delay * 60 * 1000, self:getId(), 1, delay * 60 * 1000)
+			if self:isPromoted() then
+				soulRegen[self:getId()] = addEvent(regenSoul, 16 * 1000, self:getId(), 1, 16 * 1000)
+			else
+				soulRegen[self:getId()] = addEvent(regenSoul, 60 * 1000, self:getId(), 1, 60 * 1000) -- 1 per 2 minutes is too slow
+			end
+		end
+	end
+	
+	if streakLevel >= DAILY_REWARD_HP_REGENERATION then
+		if streakLevel >= DAILY_REWARD_DOUBLE_HP_REGENERATION then
+			self:setPzRegenHealth(2)
+		else
+			self:setPzRegenHealth(2)
+		end
+	end
+	
+	if streakLevel >= DAILY_REWARD_MP_REGENERATION then
+		if streakLevel >= DAILY_REWARD_DOUBLE_MP_REGENERATION then
+			self:setPzRegenMana(2)
+		else
+			self:setPzRegenMana(2)
 		end
 	end
 	--[[ Message for testing

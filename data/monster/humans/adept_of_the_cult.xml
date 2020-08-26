@@ -72,7 +72,7 @@
 		<item name="amber staff" chance="680" />
 		<item name="cultish robe" chance="10080" />
 		<item name="cultish symbol" chance="90" />
-		<item name="rope belt" chance="10000" />
+		<item name="rope belt" chance="9910" />
 		<item name="broken key ring" chance="120" />
 	</loot>
 </monster>

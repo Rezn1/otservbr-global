@@ -1,31 +1,35 @@
 dofile('data/modules/scripts/prey_system/assets.lua')
-
-Prey = {
-	Credits = "System remake: Westwol ~ Packet logic: Cjaker ~  Formulas: slavidodo ~  Revision: Rick",
-	Version = "5.0",
-	LastUpdate = "18/07/20",
-}
-
 CONST_PREY_SLOT_FIRST = 0
 CONST_PREY_SLOT_SECOND = 1
 CONST_PREY_SLOT_THIRD = 2
 
-CONST_MONSTER_TIER_BRONZE = 0
-CONST_MONSTER_TIER_SILVER = 1
-CONST_MONSTER_TIER_GOLD = 2
-CONST_MONSTER_TIER_PLATINUM = 3
+--CONST_MONSTER_TIER_BRONZE = 0
+--CONST_MONSTER_TIER_SILVER = 1
+--CONST_MONSTER_TIER_GOLD = 2
+--CONST_MONSTER_TIER_PLATINUM = 3
+
+CONST_MONSTER_TIER_TRIVIAL = 0
+CONST_MONSTER_TIER_EASY = 1
+CONST_MONSTER_TIER_MEDIUM = 2
+CONST_MONSTER_TIER_HARD = 3
+
+CONST_MONSTER_TIER_UNCOMMON = 4
+CONST_MONSTER_TIER_RARE = 8
+CONST_MONSTER_TIER_VERY_RARE = 16
 
 CONST_BONUS_DAMAGE_BOOST = 0
 CONST_BONUS_DAMAGE_REDUCTION = 1
 CONST_BONUS_XP_BONUS = 2
 CONST_BONUS_IMPROVED_LOOT = 3
 
+Prey = {}
+
 Prey.Config = {
 	PreyTime = 7200, -- Milliseconds
 	StoreSlotStorage = 63253,
-	ListRerollPrice = 150,
+	ListRerollPrice = 0, -- 150
 	BonusRerollPrice = 1,
-	SelectWithWildCardPrice = 5,
+	SelectWithWildCardPrice = 5
 }
 
 Prey.S_Packets = {
@@ -72,36 +76,153 @@ Prey.Bonuses = {
 }
 
 Prey.MonsterList = {
-	[CONST_MONSTER_TIER_BRONZE] = {
-		"Rotworm", "Carrion Worm", "Skeleton", "Ghoul", "Cyclops", "Cyclops Drone", "Cyclops Smith", "Dark Magician",
-		"Beholder", "Dragon", "Dragon Hatchling", "Dwarf", "Dwarf Guard", "Dwarf Geomancer", "Dwarf Soldier",
-		"Earth Elemental", "Fire Elemental", "Gargoyle", "Merlkin", "Minotaur", "Minotaur Guard", "Minotaur Mage",
-		"Minotaur Archer", "Nomad", "Amazon", "Hunter", "Orc", "Orc Berserker", "Orc Leader", "Orc Shaman",
-		"Orc Spearman", "Orc Warlord", "Panda", "Rotworm Queen", "Tarantula", "Scarab", "Skeleton Warrior", "Smuggler"
+--	[CONST_MONSTER_TIER_BRONZE] = {
+--		"Rotworm", "Carrion Worm", "Skeleton", "Ghoul", "Cyclops", "Cyclops Drone", "Cyclops Smith", "Dark Magician",
+--		"Beholder", "Dragon", "Dragon Hatchling", "Dwarf", "Dwarf Guard", "Dwarf Geomancer", "Dwarf Soldier",
+--		"Earth Elemental", "Fire Elemental", "Gargoyle", "Merlkin", "Minotaur", "Minotaur Guard", "Minotaur Mage",
+--		"Minotaur Archer", "Nomad", "Amazon", "Hunter", "Orc", "Orc Berserker", "Orc Leader", "Orc Shaman",
+--		"Orc Spearman", "Orc Warlord", "Panda", "Rotworm Queen", "Tarantula", "Scarab", "Skeleton Warrior", "Smuggler"
+--	},
+--	[CONST_MONSTER_TIER_SILVER] = {
+--		"Pirate Buccaneer", "Pirate Ghost", "Pirate Marauder", "Pirate Skeleton", "Dragon Lord Hatchling",
+--		"Frost Dragon Hatchling", "Behemoth", "Faun", "Dark Faun", "Dragon Lord", "Frost Dragon", "Hydra", "Hero",
+--		"Bullwark", "Giant Spider", "Crystal Spider", "Deepling Brawler", "Deepling Elite", "Deepling Guard",
+--		"Deepling Master Librarian", "Deepling Tyrant", "Deepling Warrior", "Wyrm", "Elder Wyrm", "Fleshslicer",
+--		"Frost Giant", "Ghastly Dragon", "Ice Golem", "Infernalist", "Warlock", "Lich", "Lizard Chosen",
+--		"Lizard Dragon Priest", "Lizard High Guard", "Lizard Legionnaire", "Lizard Zaogun", "Massive Energy Elemental",
+--		"Massive Fire Elemental", "Massive Water Elemental", "Minotaur Amazon", "Execowtioner", "Minotaur Hunter",
+--		"Mooh'Tah Warrior", "Mutated Bat", "Mutated Human", "Necromancer", "Nightmare", "Nightmare Scion", "Ogre Brute",
+--		"Ogre Savage", "Ogre Shaman", "Orclops Doomhauler", "Orclops Ravager", "Quara Constrictor",
+--		"Quara Constrictor Scout", "Quara Hydromancer", "Quara Mantassin", "Quara Pincher", "Quara Predator",
+--		"Sea Serpent", "Shaper Matriarch", "Silencer", "Spitter", "Worker Golem", "Werewolf",
+--		"Hellspawn", "Shadow Tentacle", "Vampire Bride", "Dragonling", "Shock Head", "Frazzlemaw",
+--	},
+--	[CONST_MONSTER_TIER_GOLD] = {
+--		"Plaguesmith", "Demon", "Crystal Spider", "Defiler", "Destroyer", "Diamond Servant", "Draken Elite",
+--		"Draken Spellweaver", "Draken Warmaster", "Draken Abomination", "Feversleep", "Terrorsleep", "Draptor",
+--		"Grim Reaper", "Guzzlemaw", "Hellfire Fighter", "Hand of Cursed Fate", "Hellhound", "Juggernaut",
+--		"Sparkion", "Dark Torturer", "Undead Dragon", "Retching Horror", "Choking Fear", "Choking Fear",
+--		"Shiversleep", "Sight Of Surrender", "Demon Outcast", "Blightwalker", "Grimeleech", "Vexclaw", "Grimeleech",
+--		"Dawnfire Asura", "Midnight Asura", "Frost Flower Asura", "True Dawnfire Asura", "True Frost Flower Asura",
+--		"True Midnight Asura"
+--	}
+	[CONST_MONSTER_TIER_TRIVIAL] = {
+		"Badger", "Bat", "Bug", "Cave Rat", "Chicken", "Fox", "Frost Troll", "Goblin", "Island Troll", "Penguin", "Poison Spider",
+		"Rat", "Sandcrawler", "Skunk", "Snake", "Spider", "Troll", "Wasp", "Winter Wolf", "Wolf"
 	},
-	[CONST_MONSTER_TIER_SILVER] = {
-		"Pirate Buccaneer", "Pirate Ghost", "Pirate Marauder", "Pirate Skeleton", "Dragon Lord Hatchling",
-		"Frost Dragon Hatchling", "Behemoth", "Faun", "Dark Faun", "Dragon Lord", "Frost Dragon", "Hydra", "Hero",
-		"Bullwark", "Giant Spider", "Crystal Spider", "Deepling Brawler", "Deepling Elite", "Deepling Guard",
-		"Deepling Master Librarian", "Deepling Tyrant", "Deepling Warrior", "Wyrm", "Elder Wyrm", "Fleshslicer",
-		"Frost Giant", "Ghastly Dragon", "Ice Golem", "Infernalist", "Warlock", "Lich", "Lizard Chosen",
-		"Lizard Dragon Priest", "Lizard High Guard", "Lizard Legionnaire", "Lizard Zaogun", "Massive Energy Elemental",
-		"Massive Fire Elemental", "Massive Water Elemental", "Minotaur Amazon", "Execowtioner", "Minotaur Hunter",
-		"Mooh'Tah Warrior", "Mutated Bat", "Mutated Human", "Necromancer", "Nightmare", "Nightmare Scion", "Ogre Brute",
-		"Ogre Savage", "Ogre Shaman", "Orclops Doomhauler", "Orclops Ravager", "Quara Constrictor",
-		"Quara Constrictor Scout", "Quara Hydromancer", "Quara Mantassin", "Quara Pincher", "Quara Predator",
-		"Sea Serpent", "Shaper Matriarch", "Silencer", "Spitter", "Worker Golem", "Werewolf",
-		"Hellspawn", "Shadow Tentacle", "Vampire Bride", "Dragonling", "Shock Head", "Frazzlemaw",
+	[CONST_MONSTER_TIER_EASY] = {
+		"Abyssal Calamary", "Acolyte of Darkness", "Adventurer", "Amazon", "Assassin", "Azure Frog", "Bandit", "Barbarian Brutetamer", 
+		"Barbarian Headsplitter", "Barbarian Skullhunter", "Bear", "Blood Crab", "Boar", "Bonelord", "Calamary", "Carrion Worm", 
+		"Centipede", "Chakoya Toolshaper", "Chakoya Tribewarden", "Chakoya Windcaller", "Cobra", "Coral Frog", "Corym Charlatan", 
+		"Crab", "Crazed Beggar", "Crimson Frog", "Crocodile", "Crypt Defiler", "Crypt Shambler", "Cyclops", "Damaged Crystal Golem", 
+		"Damaged Worker Golem", "Dark Apprentice", "Dark Magician", "Dark Monk", "Deepling Worker", "Deepsea Blood Crab", 
+		"Dire Penguin", "Dwarf", "Dwarf Guard", "Dwarf Soldier", "Dworc Fleshhunter", "Dworc Venomsniper", "Dworc Voodoomaster", 
+		"Elephant", "Elf", "Elf Arcanist", "Elf Scout", "Emerald Damselfly", "Feverish Citizen", "Filth Toad", "Fire Devil", 
+		"Firestarter", "Frost Giant", "Frost Giantess", "Furious Troll", "Gang Member", "Gargoyle", "Gazer", "Ghost", "Ghost Wolf", 
+		"Ghoul", "Gladiator", "Gloom Wolf", "Gnarlhound", "Goblin Assassin", "Goblin Leader", "Goblin Scavenger", "Gozzler", 
+		"Grave Robber", "Honour Guard", "Hunter", "Hyaena", "Insect Swarm", "Insectoid Scout", "Iron Servant", "Jellyfish", 
+		"Killer Rabbit", "Kongra", "Ladybug", "Larva", "Leaf Golem", "Lion", "Little Corym Charlatan", "Lizard Sentinel", 
+		"Lizard Templar", "Mad Scientist", "Mammoth", "Marsh Stalker", "Mercury Blob", "Merlkin", "Minotaur", "Minotaur Archer", 
+		"Minotaur Guard", "Minotaur Mage", "Mole", "Monk", "Mummy", "Nomad", "Nomad Female", "Novice of the Cult", "Orc", "Orc Rider", 
+		"Orc Shaman", "Orc Spearman", "Orc Warrior", "Orchid Frog", "Panda", "Pirate Ghost", "Pirate Marauder", "Pirate Skeleton", 
+		"Poacher", "Polar Bear", "Quara Mantassin Scout", "Redeemed Soul", "Rorc", "Rotworm", "Salamander", "Scarab", "Scorpion", 
+		"Sibang", "Skeleton", "Skeleton Warrior", "Slime", "Slug", "Smuggler", "Spit Nettle", "Squidgy Slime", "Stalker", 
+		"Starving Wolf", "Stone Golem", "Swamp Troll", "Swampling", "Tarantula", "Tarnished Spirit", "Terramite", "Terror Bird", 
+		"Thornback Tortoise", "Tiger", "Toad", "Tortoise", "Troll Champion", "Troll Guard", "Undead Mine Worker", "Undead Prospector", 
+		"Valkyrie", "War Wolf", "Water Buffalo", "White Shade",
 	},
-	[CONST_MONSTER_TIER_GOLD] = {
-		"Plaguesmith", "Demon", "Crystal Spider", "Defiler", "Destroyer", "Diamond Servant", "Draken Elite",
-		"Draken Spellweaver", "Draken Warmaster", "Draken Abomination", "Feversleep", "Terrorsleep", "Draptor",
-		"Grim Reaper", "Guzzlemaw", "Hellfire Fighter", "Hand of Cursed Fate", "Hellhound", "Juggernaut",
-		"Sparkion", "Dark Torturer", "Undead Dragon", "Retching Horror", "Choking Fear", "Choking Fear",
-		"Shiversleep", "Sight Of Surrender", "Demon Outcast", "Blightwalker", "Grimeleech", "Vexclaw", "Grimeleech",
-		"Dawnfire Asura", "Midnight Asura", "Frost Flower Asura", "True Dawnfire Asura", "True Frost Flower Asura",
-		"True Midnight Asura"
-	}
+	[CONST_MONSTER_TIER_MEDIUM] = {
+		"Acid Blob", "Acolyte of the Cult", "Adept of the Cult", "Ancient Scarab", "Animated Snowman", "Arctic Faun", "Askarak Demon", 
+		"Askarak Lord", "Askarak Prince", "Baleful Bunny", "Bane Bringer", "Bane of Light", "Banshee", "Barbarian Bloodwalker", 
+		"Barkless Devotee", "Barkless Fanatic", "Behemoth", "Berserker Chicken", "Betrayed Wraith", "Blood Beast", "Blood Hand", 
+		"Blood Priest", "Blue Djinn", "Bog Raider", "Bonebeast", "Boogy", "Braindeath", "Brimstone Bug", "Broken Shaper", "Carniphila", 
+		"Clay Guardian", "Clomp", "Corym Skirmisher", "Corym Vanguard", "Crawler", "Crustacea Gigantica", "Crystal Spider", 
+		"Crystal Wolf", "Crystalcrusher", "Cult Believer", "Cult Enforcer", "Cult Scholar", "Cyclops Drone", "Cyclops Smith", 
+		"Dark Faun", "Death Blob", "Death Priest", "Deepling Brawler", "Deepling Elite", "Deepling Guard", "Deepling Master Librarian", 
+		"Deepling Scout", "Deepling Spellsinger", "Deepling Warrior", "Demon Parrot", "Demon Skeleton", "Destroyer", "Devourer", 
+		"Diabolic Imp", "Diamond Servant", "Diamond Servant Replica", "Doom Deer", "Dragon", "Dragon Hatchling", "Dragon Lord", 
+		"Dragon Lord Hatchling", "Dragonling", "Draken Warmaster", "Draptor", "Drillworm", "Dryad", "Duskbringer", 
+		"Dwarf Geomancer","Earth Elemental", "Efreet", "Elder Bonelord", "Elder Mummy", "Energy Elemental", "Enfeebled Silencer", 
+		"Enlightened of the Cult", "Enraged Crystal Golem", "Enslaved Dwarf", "Eternal Guardian", "Evil Sheep", "Evil Sheep Lord", 
+		"Execowtioner", "Faun", "Feversleep", "Fire Elemental", "Flying Book", "Forest Fury", "Frost Dragon", "Frost Dragon Hatchling", 
+		"Frost Flower Asura", "Ghoulish Hyaena", "Giant Spider", "Glooth Anemone", "Glooth Bandit", "Glooth Blob", "Glooth Brigand", 
+		"Glooth Golem", "Golden Servant", "Golden Servant Replica", "Goldhanded Cultist", "Grave Guard", "Gravedigger", "Green Djinn", 
+		"Gryphon", "Haunted Treeling", "Hellspawn", "Herald of Gloom", "Hero", "Hibernal Moth", "High Voltage Elemental", "Hot Dog", 
+		"Hydra", "Ice Dragon", "Ice Golem", "Ice Witch", "Infernal Frog", "Insectoid Worker", "Instable Breach Brood", 
+		"Instable Sparkion", "Iron Servant Replica", "Killer Caiman", "Kollos", "Lacewing Moth", "Lancer Beetle", "Lich", 
+		"Lizard Chosen", "Lizard Dragon Priest", "Lizard High Guard", "Lizard Legionnaire", "Lizard Magistratus", "Lizard Snakecharmer", 
+		"Lizard Zaogun", "Lost Basher", "Lost Exile", "Lost Husher", "Lost Soul", "Lost Thrower", "Lumbering Carnivor", "Manta Ray", 
+		"Marid", "Massive Earth Elemental", "Massive Energy Elemental", "Massive Fire Elemental", "Massive Water Elemental", 
+		"Metal Gargoyle", "Midnight Asura", "Midnight Panther", "Midnight Spawn", "Minotaur Cult Follower", "Minotaur Cult Prophet", 
+		"Minotaur Cult Zealot", "Minotaur Hunter", "Minotaur Invader", "Misguided Bully", "Misguided Thief", "Mooh'Tah Warrior", 
+		"Moohtant", "Mutated Bat", "Mutated Human", "Mutated Rat", "Mutated Tiger", "Necromancer", "Nightfiend", "Nightmare", 
+		"Nightmare Scion", "Nightstalker", "Noble Lion", "Nymph", "Ogre Brute", "Ogre Savage", "Ogre Shaman", "Omnivora", 
+		"Orc Berserker", "Orc Cult Fanatic", "Orc Cult Inquisitor", "Orc Cult Minion", "Orc Cult Priest", "Orc Cultist", "Orc Leader", 
+		"Orc Marauder", "Orc Warlord", "Orclops Doomhauler", "Orclops Ravager", "Percht", "Pirate Buccaneer", "Pirate Corsair", 
+		"Pirate Cutthroat", "Pixie", "Plaguesmith", "Pooka", "Priestess", "Putrid Mummy", "Quara Constrictor", 
+		"Quara Constrictor Scout", "Quara Hydromancer", "Quara Hydromancer Scout", "Quara Mantassin", "Quara Pincher", 
+		"Quara Pincher Scout", "Quara Predator", "Quara Predator Scout", "Raging Fire", "Ravenous Lava Lurker", "Renegade Knight", 
+		"Renegade Quara Constrictor", "Renegade Quara Hydromancer", "Renegade Quara Mantassin", "Renegade Quara Pincher", 
+		"Renegade Quara Predator", "Roaring Lion", "Rot Elemental", "Rustheap Golem", "Sacred Spider", "Sandstone Scorpion", "Schiach", 
+		"Sea Serpent", "Serpent Spawn", "Shaburak Demon", "Shaburak Lord", "Shaburak Prince", "Shadow Hound", "Shadow Pupil", 
+		"Shaper Matriarch", "Shark", "Silencer", "Souleater", "Spectre", "Spidris", "Spidris Elite", "Spitter", 
+		"Stabilizing Dread Intruder", "Stabilizing Reality Reaver", "Stampor", "Stone Rhino", "Stonerefiner", "Swan Maiden", "Swarmer", 
+		"Thornfire Wolf", "Tomb Servant", "Troll Legionnaire", "Twisted Pooka", "Twisted Shaper", "Undead Cavebear", "Undead Gladiator", 
+		"Vampire", "Vampire Bride", "Vampire Pig", "Vampire Viscount", "Vicious Manbat", "Vicious Squire", "Vile Grandmaster", 
+		"Wailing Widow", "Walker", "War Golem", "Warlock", "Waspoid", "Water Elemental", "Weakened Frazzlemaw", "Werebadger", 
+		"Werebear", "Wereboar", "Werefox", "Werewolf", "Wiggler", "Wilting Leaf Golem", "Worker Golem", "Worm Priestess", "Wyrm", 
+		"Wyvern", "Yeti", "Yielothax", "Young Sea Serpent", "Zombie"
+	},
+	[CONST_MONSTER_TIER_HARD] = {
+		"Adult Goanna", "Animated Feather", "Arachnophobica", "Armadile", "Biting Book", "Black Sphinx Acolyte", "Blightwalker", 
+		"Brain Squid", "Breach Brood", "Burning Book", "Burning Gladiator", "Burster Spectre", "Cave Devourer", "Chasm Spawn", 
+		"Choking Fear", "Cliff Strider", "Cobra Assassin", "Cobra Scout", "Cobra Vizier", "Crazed Summer Rearguard", 
+		"Crazed Summer Vanguard", "Crazed Winter Rearguard", "Crazed Winter Vanguard", "Crypt Warden", "Cursed Book", "Dark Torturer", 
+		"Dawnfire Asura", "Deathling Scout", "Deathling Spellsinger", "Deepling Tyrant", "Deepworm", "Defiler", "Demon", 
+		"Demon Outcast", "Diremaw", "Draken Abomination", "Draken Elite", "Draken Spellweaver", "Dread Intruder", "Elder Wyrm", 
+		"Energetic Book", "Energuardian of Tales", "Falcon Knight", "Falcon Paladin", "Feral Sphinx", "Floating Savant", "Frazzlemaw", 
+		"Fury", "Gazer Spectre", "Ghastly Dragon", "Grim Reaper", "Grimeleech", "Guardian of Tales", "Guzzlemaw", "Hand of Cursed Fate", 
+		"Haunted Dragon", "Hellfire Fighter", "Hellflayer", "Hellhound", "Hideous Fungus", "Hive Overseer", "Humongous Fungus", 
+		"Icecold Book", "Infected Weeper", "Infernalist", "Ink Blob", "Insane Siren", "Ironblight", "Juggernaut", "Knowledge Elemental", 
+		"Lamassu", "Lava Golem", "Lava Lurker", "Lizard Noble", "Lost Berserker", "Magma Crawler", "Manticore", "Medusa", 
+		"Menacing Carnivor", "Minotaur Amazon", "Ogre Rowdy", "Ogre Ruffian", "Ogre Sage", "Orewalker", "Phantasm", 
+		"Priestess of the Wild Sun", "Rage Squid", "Reality Reaver", "Retching Horror", "Ripper Spectre", "Seacrest Serpent", 
+		"Shock Head", "Sight of Surrender", "Skeleton Elite Warrior", "Son of Verminor", "Soul-Broken Harbinger", "Sparkion", "Sphinx", 
+		"Spiky Carnivor", "Squid Warden", "Stone Devourer", "Terrorsleep", "Thanatursus", "True Dawnfire Asura", 
+		"True Frost Flower Asura", "True Midnight Asura", "Tunnel Tyrant", "Undead Dragon", "Undead Elite Gladiator", "Vexclaw", 
+		"Vulcongra", "Weeper", "Young Goanna"
+	},
+}
+
+Prey.Rarities = {
+	[CONST_MONSTER_TIER_UNCOMMON] = {
+		"Husky", "Modified Gnarlhound", "Northern Pike (Creature)", "Pigeon", "Black Sheep", "Horse (Brown)", "Horse (Gray)", 
+		"Calamary", "Damaged Crystal Golem", "Filth Toad", "Furious Troll", "Gloom Wolf", "Jellyfish", "Killer Rabbit", 
+		"Little Corym Charlatan", "Nomad (Blue)", "Nomad (Female)", "Undead Mine Worker", "Undead Prospector", "Arctic Faun", 
+		"Berserker Chicken", "Cult Scholar", "Deepling Brawler", "Deepling Elite", "Demon Parrot", "Doom Deer", "Dragonling", 
+		"Elder Forest Fury", "Evil Sheep Lord", "Flying Book", "Goldhanded Cultist", "Goldhanded Cultist Bride", "Gryphon", 
+		"Hibernal Moth", "Hot Dog", "Infernal Frog", "Lacewing Moth", "Massive Energy Elemental", "Noble Lion", "Orc Cult Fanatic", 
+		"Orc Cult Priest", "Orc Cultist", "Stone Rhino", "Swan Maiden", "Vampire Pig", "Walker", "Armadile", "Cliff Strider", 
+		"Cursed Book", "Guardian of Tales", "Infected Weeper", "Ironblight", "Knowledge Elemental", "Lava Golem", "Orewalker", 
+		"Stone Devourer", "Weeper",
+	},
+	[CONST_MONSTER_TIER_RARE] = {
+		"Horse (Taupe)", "White Deer", "Crypt Defiler", "Feverish Citizen", "Firestarter", "Ghost Wolf", "Grave Robber", "Honour Guard", 
+		"Insectoid Scout", "Ladybug", "Squidgy Slime", "Starving Wolf", "Animated Snowman", "Askarak Lord", "Askarak Prince", 
+		"Baleful Bunny", "Bellicose Orger", "Cow", "Death Priest", "Deepling Master Librarian", "Diamond Servant Replica", 
+		"Elder Mummy", "Ghoulish Hyaena", "Golden Servant Replica", "Grave Guard", "Ice Dragon", "Kollos", "Loricate Orger", 
+		"Manta Ray", "Minotaur Invader", "Orger", "Percht", "Renegade Quara Constrictor", "Renegade Quara Hydromancer", 
+		"Renegade Quara Mantassin", "Renegade Quara Pincher", "Renegade Quara Predator", "Roast Pork", "Sacred Spider", 
+		"Sandstone Scorpion", "Schiach", "Shaburak Lord", "Shaburak Prince", "Spidris", "Spidris Elite", "Tomb Servant", 
+		"Deepling Tyrant", "Haunted Dragon", "Hive Overseer", "Seacrest Serpent", 
+	},
+	[CONST_MONSTER_TIER_VERY_RARE] = {
+		"Berrypest", "Grynch Clan Goblin", "Undead Jester", "Wild Horse", "Acolyte of Darkness", "Cake Golem", "Dire Penguin", 
+		"Doomsday Cultist", "Goblin Leader", "Iron Servant", "Troll Guard", "Water Buffalo", "Bane Bringer", "Bane of Light", 
+		"Bride of Night", "Crustacea Gigantica", "Crystal Wolf", "Diamond Servant", "Draptor", "Dryad", "Duskbringer", "Elf Overseer", 
+		"Golden Servant", "Herald of Gloom", "Midnight Panther", "Midnight Spawn", "Midnight Warrior", "Nightfiend", "Nightslayer", 
+		"Raging Fire", "Shadow Hound", "Thornfire Wolf", "Undead Cavebear", "Vicious Manbat", "Yeti",
+	},
 }
 
 -- Communication functions
@@ -154,12 +275,20 @@ function Player.setRandomBonusValue(self, slot, bonus, typeChange)
 end
 
 function Player.getMonsterTier(self)
-	if self:getLevel() > 0 and self:getLevel() < 60 then
-		return CONST_MONSTER_TIER_BRONZE
-	elseif self:getLevel() >= 60 and self:getLevel() < 160 then
-		return CONST_MONSTER_TIER_SILVER
-	elseif self:getLevel() >= 160 then
-		return CONST_MONSTER_TIER_GOLD
+	local level = self:getLevel()
+	local trivial = 10
+	local easy = math.min(100,4*level)
+	local medium = math.min(200,math.max(0,4*(level-35)-2*math.max(0,level-60)))
+	local hard = math.min(300,math.max(0,4*(level-85)))
+	local r = math.random(trivial+easy+medium+hard)
+	if r <= trivial then
+		return CONST_MONSTER_TIER_TRIVIAL
+	elseif r <= trivial+easy then
+		return CONST_MONSTER_TIER_EASY
+	elseif r <= trivial+easy+medium then
+		return CONST_MONSTER_TIER_MEDIUM
+	else 
+		return CONST_MONSTER_TIER_HARD
 	end
 end
 
@@ -180,10 +309,17 @@ function Player.createMonsterList(self)
 	-- Generating monsterList
 	local monsters = {}
 	while (#monsters ~= 9) do
-		local randomMonster = Prey.MonsterList[self:getMonsterTier()][math.random(#Prey.MonsterList[self:getMonsterTier()])]
+		local monsterList = self:getMonsterTier()
+		local randomMonster = Prey.MonsterList[monsterList][math.random(#Prey.MonsterList[monsterList])]
+		-- Rare monsters have chance lowered
+		local rareCheck = true
+		for i, rare in pairs(Prey.Rarities) do
+			if table.contains(rare, randomMonster) then
+				rareCheck = math.random(i) == 1
+			end
+		end
 		-- Verify that monster actually exists
-		if MonsterType(randomMonster) and not table.contains(monsters, randomMonster)
-		and not table.contains(repeatedList, randomMonster) then
+		if MonsterType(randomMonster) and not table.contains(monsters, randomMonster) and not table.contains(repeatedList, randomMonster) and rareCheck then
 			monsters[#monsters + 1] = randomMonster
 		end
 	end
@@ -299,7 +435,7 @@ function Player.preyAction(self, msg)
 		if (self:getPreyState(slot) ~= Prey.StateTypes.ACTIVE and self:getPreyState(slot) ~= Prey.StateTypes.SELECTION
 		and self:getPreyState(slot) ~= Prey.StateTypes.SELECTION_CHANGE_MONSTER)
 		and self:getPreyState(slot) ~= Prey.StateTypes.INACTIVE then
-			return self:sendErrorDialog("This is slot is not even active.")
+			return self:sendErrorDialog("This slot is not active.")
 		end
 
 		-- If free reroll is available

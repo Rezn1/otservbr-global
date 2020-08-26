@@ -3,7 +3,7 @@ dofile('data/modules/scripts/blessings/blessings.lua')
 local blessStatus = TalkAction("/bless")
 
 function blessStatus.onSay(player, words, param)
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
+	if not player:getGroup():getAccess() and player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return true
 	end
 

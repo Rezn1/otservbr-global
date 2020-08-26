@@ -41,22 +41,21 @@
 		<voice sentence="For hurting me, my sire will kill you!" />
 	</voices>
 	<loot>
-		<item id="2543" countmax="10" chance="90450" />	<!-- bolt -->
-		<item id="2148" countmax="30" chance="75410" />	<!-- gold coin -->
-		<item id="2681" chance="15400" />				<!-- grapes -->
-		<item id="7591" countmax="2" chance="12340" />	<!--great health potion -->
-		<item id="2666" chance="5000" />					<!-- meat -->
-		<item id="2455" chance="830" />					<!-- crossbow -->
-		<item id="2652" chance="760" />				<!-- Green Tunic -->
-		<item id="2164" countmax="2" chance="700" />	<!-- Might Ring -->
-		<item id="2120" chance="1000" />					<!-- Rope -->
-		<item id="2661" chance="1000" />					<!-- Scarf -->
-		<item id="1949" chance="830" />					<!-- Scroll -->
-		<item id="2145" chance="830" />					<!-- Small Diamond -->
-		<item id="2391" chance="130" />					<!-- War Hammer -->
-		<item id="2381" chance="830" />					<!-- Halberd -->
-		<item id="2515" chance="330" />					<!-- Guardian Shield -->
-		<item id="2477" chance="230" />					<!-- Knight Legs -->
-		<item id="2475" chance="200" />					<!-- Warrior Helmet -->
+		<item id="2148" countmax="70" chance="100000"/>	<!-- gold coin -->
+		<item id="2544" countmax="10" chance="20230"/>	<!-- bolt -->
+		<item id="7591" chance="5750"/>					<!--great health potion -->
+		<item id="2666" chance="10730"/>				<!-- meat -->
+		<item id="2455" chance="12830"/>				<!-- crossbow -->
+		<item id="2164" chance="410"/>					<!-- Might Ring -->
+		<item id="2661" chance="660"/>					<!-- Scarf -->
+		<item id="2145" chance="2410"/>					<!-- Small Diamond -->
+		<item id="2391" chance="790"/>					<!-- War Hammer -->
+		<item id="2381" chance="2460"/>					<!-- Halberd -->
+		<item id="2515" chance="310"/>					<!-- Guardian Shield -->
+		<item id="2477" chance="350"/>					<!-- Knight Legs -->
+		<item id="2475" chance="230"/>					<!-- Warrior Helmet -->
+		<item name="Small Emerald" chance="2540"/>
+		<item name="Small Amethyst" chance="2400"/>
+		<item name="Piggy Bank" chance="50"/>
 	</loot>
 </monster>

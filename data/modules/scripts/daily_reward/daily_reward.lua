@@ -286,7 +286,7 @@ DailyReward.pickedReward = function(playerId)
 		player:setDayStreak(0)
 	end
 
-	player:setStreakLevel(player:getStreakLevel() + 1)
+	player:setStreakLevel((player:getStreakLevel() or 6) + 1) --n
 	player:setStorageValue(DailyReward.storages.avoidDouble, Game.getLastServerSave())
 	player:setNextRewardTime(Game.getLastServerSave() + DailyReward.serverTimeThreshold)
 	player:getPosition():sendMagicEffect(CONST_ME_FIREWORK_YELLOW)
@@ -359,15 +359,15 @@ DailyReward.init = function(playerId)
 	local rewardTime = player:getNextRewardTime() + DailyReward.serverTimeThreshold + 60 -- 1 minutes timegrace
 	local nextServerSave = Game.getLastServerSave() + DailyReward.serverTimeThreshold
 
-	if rewardTime < nextServerSave then
-		if player:getStorageValue(DailyReward.storages.notifyReset) ~= Game.getLastServerSave() then
-			player:setStreakLevel(0)
-			player:setStorageValue(DailyReward.storages.notifyReset, Game.getLastServerSave())
-			if player:getLastLoginSaved() > 0 then -- message wont appear at first character login
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You just lost your daily reward streak.")
-			end
-		end
-	end
+	--if rewardTime < nextServerSave then	--n
+	--	if player:getStorageValue(DailyReward.storages.notifyReset) ~= Game.getLastServerSave() then
+	--		player:setStreakLevel(0)
+	--		player:setStorageValue(DailyReward.storages.notifyReset, Game.getLastServerSave())
+	--		if player:getLastLoginSaved() > 0 then -- message wont appear at first character login
+	--			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You just lost your daily reward streak.")
+	--		end
+	--	end
+	--end
 
 	DailyReward.updateDailyRewardStats(playerId)
 end

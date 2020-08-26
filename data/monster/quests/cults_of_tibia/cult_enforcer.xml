@@ -18,7 +18,10 @@
 		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="10" max="-360" />
+		<attack name="melee" interval="2000" min="0" max="-250"/>
+		<attack name="physical" interval="2000" chance="15" range="5" min="-50" max="-100">
+			<attribute key="shootEffect" value="spear"/>
+		</attack>
 	</attacks>
 	<defenses armor="35" defense="50">
 		<defense name="healing" interval="4000" chance="25" min="150" max="200">
@@ -35,22 +38,19 @@
 		<voice sentence="No one will stop us!" />
 	</voices>
 	<loot>
-		<item id="2543" countmax="10" chance="90450" />	<!-- bolt -->
-		<item id="2148" countmax="30" chance="75410" />	<!-- gold coin -->
-		<item id="2681" chance="15400" />				<!-- grapes -->
-		<item id="7591" countmax="2" chance="12340" />	<!--great health potion -->
-		<item id="2666" chance="5000" />					<!-- meat -->
-		<item id="2455" chance="830" />					<!-- crossbow -->
-		<item id="2652" chance="760" />				<!-- Green Tunic -->
-		<item id="2164" countmax="2" chance="700" />	<!-- Might Ring -->
-		<item id="2120" chance="1000" />					<!-- Rope -->
-		<item id="2661" chance="1000" />					<!-- Scarf -->
-		<item id="1949" chance="830" />					<!-- Scroll -->
-		<item id="2145" chance="830" />					<!-- Small Diamond -->
-		<item id="2391" chance="130" />					<!-- War Hammer -->
-		<item id="2381" chance="830" />					<!-- Halberd -->
-		<item id="2515" chance="330" />					<!-- Guardian Shield -->
-		<item id="2477" chance="230" />					<!-- Knight Legs -->
-		<item id="2475" chance="200" />					<!-- Warrior Helmet -->
-	</loot>
+    <item id="2148" countmax="70" chance="100000"/><!-- gold coin -->
+    <item id="7591" countmax="1" chance="6250"/><!--great health potion -->
+    <item id="2666" chance="10730"/><!-- meat -->
+    <item id="2164" countmax="1" chance="440"/><!-- Might Ring -->
+    <item id="2661" chance="510" countmax="1"/><!-- Scarf -->
+    <item id="2145" chance="2870" countmax="1"/><!-- Small Diamond -->
+    <item id="2391" chance="660" countmax="1"/><!-- War Hammer -->
+    <item id="2381" chance="3669" countmax="1"/><!-- Halberd -->
+    <item id="2515" chance="510" countmax="1"/><!-- Guardian Shield -->
+    <item id="2477" chance="290" countmax="1"/><!-- Knight Legs -->
+    <item id="2475" chance="220" countmax="1"/><!-- Warrior Helmet -->
+    <item name="cultish robe" chance="5360"/>
+    <item name="small emerald" chance="2650"/>
+    <item name="small amethyst" chance="2200"/>
+  </loot>
 </monster>

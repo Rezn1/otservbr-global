@@ -56,7 +56,7 @@
 		<item name="sandals" chance="710" />
 		<item name="bread" chance="20000" />
 		<item name="book of prayers" chance="4930" />
-		<item name="rope belt" chance="2950" />
+		<item name="rope belt" chance="3160" />
 		<item name="safety pin" chance="1001" />
 	</loot>
 </monster>

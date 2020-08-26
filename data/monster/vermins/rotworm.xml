@@ -23,7 +23,7 @@
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-40" />
 	</attacks>
-	<defenses armor="10" defense="10" />
+	<defenses armor="8" defense="11" />
 	<loot>
 		<item name="gold coin" countmax="17" chance="71760" />
 		<item id="2376" chance="3000" /><!-- sword -->

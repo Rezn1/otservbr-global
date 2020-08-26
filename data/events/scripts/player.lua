@@ -322,17 +322,17 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 
 	-- No move if item count > 20 items
 	local tile = Tile(toPosition)
-	if tile and tile:getItemCount() > 20 then
-		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+	if tile and tile:getItemCount() > 50 then
+		self:sendCancelMessage(RETURNVALUE_NOTENOUGHROOM)
 		return false
 	end
 
 	-- No move parcel very heavy
-	if CONTAINER_WEIGHT_CHECK and ItemType(item:getId()):isContainer()
-	and item:getWeight() > CONTAINER_WEIGHT_MAX then
-		self:sendCancelMessage("Your cannot move this item too heavy.")
-		return false
-	end
+	--if CONTAINER_WEIGHT_CHECK and ItemType(item:getId()):isContainer()
+	--and item:getWeight() > CONTAINER_WEIGHT_MAX then
+	--	self:sendCancelMessage("Your cannot move this item too heavy.")
+	--	return false
+	--end
 
 	-- Loot Analyser
 	local t = Tile(fromCylinder:getPosition())

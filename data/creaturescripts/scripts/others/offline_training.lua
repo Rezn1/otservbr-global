@@ -2,6 +2,7 @@ function onLogin(player)
 	local lastLogout = player:getLastLogout()
 	local offlineTime = lastLogout ~= 0 and math.min(os.time() - lastLogout, 86400 * 21) or 0
 	local offlineTrainingSkill = player:getOfflineTrainingSkill()
+	if 1 then return true end
 	if offlineTrainingSkill == -1 then
 		player:addOfflineTrainingTime(offlineTime * 1000)
 		return true

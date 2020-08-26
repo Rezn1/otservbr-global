@@ -662,11 +662,34 @@ if Modules == nil then
 		local ret = NpcSystem.getParameter("shop_buyable")
 		if ret then
 			self:parseBuyable(ret)
+			table.sort(self.npcHandler.shopItems, function(a,b) return a.name < b.name end)
+		end
+		
+		local ret = NpcSystem.getParameter("shop_default_buyable")
+		if ret then
+			for goods in string.gmatch(ret, "[^,]+") do
+				if goods ~= nil then
+					--print(goods)
+					self:parseBuyable(default_shop.buyable[goods])
+				end
+			end
+			table.sort(self.npcHandler.shopItems, function(a,b) return a.name < b.name end)
 		end
 
 		local ret = NpcSystem.getParameter("shop_sellable")
 		if ret then
 			self:parseSellable(ret)
+		end
+		
+		local ret = NpcSystem.getParameter("shop_default_sellable")
+		if ret then
+			for goods in string.gmatch(ret, "[^,]+") do
+				if goods ~= nil then
+					--print(goods)
+					self:parseSellable(default_shop.sellable[goods])
+				end
+			end
+			table.sort(self.npcHandler.shopItems, function(a,b) return a.name < b.name end)
 		end
 
 		local ret = NpcSystem.getParameter("shop_buyable_containers")

@@ -109,11 +109,12 @@ bool Spawns::loadFromXml(const std::string& fromFilename)
 					boostedrate = 1;
 				}
 				
-				uint32_t interval = pugi::cast<uint32_t>(childNode.attribute("spawntime").value()) * 1000 / (g_config.getNumber(ConfigManager::RATE_SPAWN) * boostedrate);
+				uint32_t interval = static_cast<uint32_t>(pugi::cast<uint32_t>(childNode.attribute("spawntime").value()) * 1000 / (g_config.getFloat(ConfigManager::RATE_SPAWN) * boostedrate));
 				if (interval > MINSPAWN_INTERVAL) {
 					spawn.addMonster(nameAttribute.as_string(), pos, dir, interval);
 				} else {
 					std::cout << "[Warning - Spawns::loadFromXml] " << nameAttribute.as_string() << ' ' << pos << " spawntime can not be less than " << MINSPAWN_INTERVAL / 1000 << " seconds." << std::endl;
+					spawn.addMonster(nameAttribute.as_string(), pos, dir, MINSPAWN_INTERVAL);
 				}
 			} else if (strcasecmp(childNode.name(), "npc") == 0) {
 				pugi::xml_attribute nameAttribute = childNode.attribute("name");
@@ -216,7 +217,7 @@ bool Spawns::loadCustomSpawnXml(const std::string& _filename)
 					boostedrate = 1;
 				}			
 
-				uint32_t interval = pugi::cast<uint32_t>(childNode.attribute("spawntime").value()) * 1000 / (g_config.getNumber(ConfigManager::RATE_SPAWN) * boostedrate);
+				uint32_t interval = static_cast<uint32_t>(pugi::cast<uint32_t>(childNode.attribute("spawntime").value()) * 1000 / (g_config.getFloat(ConfigManager::RATE_SPAWN) * boostedrate));
 				if (interval > MINSPAWN_INTERVAL) {
 					spawn.addMonster(nameAttribute.as_string(), pos, dir, interval);
 				} else {
@@ -301,7 +302,7 @@ bool Spawns::isInZone(const Position& centerPos, int32_t radius, const Position&
 void Spawn::startSpawnCheck()
 {
 	if (checkSpawnEvent == 0) {
-		checkSpawnEvent = g_scheduler.addEvent(createSchedulerTask(getInterval(), std::bind(&Spawn::checkSpawn, this)));
+		checkSpawnEvent = g_scheduler.addEvent(createSchedulerTask(0, std::bind(&Spawn::checkSpawn, this)));
 	}
 }
 
@@ -398,14 +399,14 @@ void Spawn::checkSpawn()
 				scheduleSpawn(spawnId, sb, 3 * NONBLOCKABLE_SPAWN_INTERVAL);
 			}
 
-			if (++spawnCount >= static_cast<uint32_t>(g_config.getNumber(ConfigManager::RATE_SPAWN))) {
+			if (++spawnCount >= 1) {
 				break;
 			}
 		}
 	}
 
 	if (spawnedMap.size() < spawnMap.size()) {
-		checkSpawnEvent = g_scheduler.addEvent(createSchedulerTask(getInterval(), std::bind(&Spawn::checkSpawn, this)));
+		checkSpawnEvent = g_scheduler.addEvent(createSchedulerTask(getInterval()/4, std::bind(&Spawn::checkSpawn, this)));
 	}
 }
 

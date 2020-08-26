@@ -731,6 +731,7 @@ bool ConditionRegeneration::executeCondition(Creature* creature, int32_t interva
 {
 	internalHealthTicks += interval;
 	internalManaTicks += interval;
+  Player* player = creature->getPlayer();
 
 	if (creature->getZone() != ZONE_PROTECTION) {
 		if (internalHealthTicks >= healthTicks) {
@@ -741,7 +742,6 @@ bool ConditionRegeneration::executeCondition(Creature* creature, int32_t interva
 			realHealthGain = creature->getHealth() - realHealthGain;
 
 			if (isBuff && realHealthGain > 0) {
-				Player* player = creature->getPlayer();
 				if (player) {
 					std::string healString = std::to_string(realHealthGain) + (realHealthGain != 1 ? " hitpoints." : " hitpoint.");
 
@@ -770,6 +770,16 @@ bool ConditionRegeneration::executeCondition(Creature* creature, int32_t interva
 			creature->changeMana(manaGain);
 		}
 	}
+  else if (player) {//n
+    if (player->getPzRegenHealth() && internalHealthTicks >= healthTicks) {
+      internalHealthTicks = 0;
+      creature->changeHealth(healthGain * player->getPzRegenHealth());
+    }
+    if (player->getPzRegenMana() && internalManaTicks >= manaTicks) {
+      internalManaTicks = 0;
+      creature->changeMana(manaGain * player->getPzRegenMana());
+    }
+  }
 
 	return ConditionGeneric::executeCondition(creature, interval);
 }

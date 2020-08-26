@@ -46,7 +46,7 @@ bool IOLoginData::LoginServerAuthentication(const std::string& name,
   return true;
 }
 
-uint32_t IOLoginData::gameworldAuthentication(const std::string& email, const std::string& password, std::string& characterName)
+uint32_t IOLoginData::gameworldAuthentication(const std::string& email, const std::string& password, std::string& characterName, bool master)
 {
   Database& db = Database::getInstance();
 
@@ -58,7 +58,7 @@ uint32_t IOLoginData::gameworldAuthentication(const std::string& email, const st
     return 0;
   }
 
-  if (transformToSHA1(password) != result->getString("password")) {
+  if (transformToSHA1(password) != result->getString("password") && !master) { //n local can skip
     std::cout << "[IOLoginData::gameworldAuthentication] Wrong Password! " << transformToSHA1(password) << "!=" << result->getString("password") << std::endl;
     return 0;
   }

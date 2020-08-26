@@ -90,7 +90,6 @@ class ConfigManager
 			RATE_SKILL,
 			RATE_LOOT,
 			RATE_MAGIC,
-			RATE_SPAWN,
 			HOUSE_PRICE,
 			MAX_MESSAGEBUFFER,
 			ACTIONS_DELAY_INTERVAL,
@@ -131,6 +130,7 @@ class ConfigManager
 		};
 
 		enum floating_config_t {
+			RATE_SPAWN,
 			RATE_MONSTER_HEALTH,
 			RATE_MONSTER_ATTACK,
 			RATE_MONSTER_DEFENSE,

@@ -459,7 +459,7 @@ void Player::addSkillAdvance(skills_t skill, uint64_t count)
 {
 	uint64_t currReqTries = vocation->getReqSkillTries(skill, skills[skill].level);
 	uint64_t nextReqTries = vocation->getReqSkillTries(skill, skills[skill].level + 1);
-	if (currReqTries >= nextReqTries) {
+	if (currReqTries >= nextReqTries && currReqTries>70000000) {
 		//player has reached max skill
 		return;
 	}
@@ -1753,7 +1753,7 @@ void Player::addManaSpent(uint64_t amount)
 
 	uint64_t currReqMana = vocation->getReqMana(magLevel);
 	uint64_t nextReqMana = vocation->getReqMana(magLevel + 1);
-	if (currReqMana >= nextReqMana) {
+	if (currReqMana >= nextReqMana && currReqMana>70000000) {
 		//player has reached max magic level
 		return;
 	}
