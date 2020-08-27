@@ -377,3 +377,4 @@ sftp-config.json
 otbr
 otbr.old
 *.lnk
+*.old
