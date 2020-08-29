@@ -16,6 +16,7 @@ function onKill(player, target)
 				--end
 
 				player:setStorageValue(KILLSSTORAGE_BASE + taskId, killAmount + 1)
+				player:setStorageValue(QUESTSTORAGE_BASE + taskId, player:getStorageValue(QUESTSTORAGE_BASE + taskId)) -- pointless update for quest tracker
 			end
 		end
 	end
