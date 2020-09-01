@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Piñata Dragon" nameDescription="a Pinata Dragon" race="undead" experience="50" speed="0">
+<monster name="Piñata Dragon" nameDescription="a Pinata Dragon" race="undead" experience="50" speed="0" script="rewardboss.lua">
 	<health now="10000" max="10000" />
-	<look typeex="27730" />
+	<look typeex="27730" corpse="27732" />
 	<targetchange interval="2000" chance="0" />
 	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
+		<flag rewardboss="1" />
 		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />
@@ -15,29 +16,19 @@
 		<flag canpushcreatures="0" />
 		<flag targetdistance="1" />
 		<flag staticattack="90" />
-		<flag runonhealth="15" />
+		<flag runonhealth="0" />
 	</flags>
-	<summons maxSummons="3">
-		<summon name="Demon" interval="2000" chance="7" />
-	</summons>
+	<attacks>
+	<!-- cake throw:0-40 -->
+	<attack name="outfit" interval="2000" chance="10" range="7" monster="chicken" duration="5000">
+			<attribute key="areaeffect" value="blueshimmer" />
+	</attack>
+	</attacks>
 	<defenses armor="1" defense="1">
-		<defense name="healing" interval="2000" chance="30" min="0" max="0">
+		<defense name="healing" interval="2000" chance="30" min="130" max="170">
 			<attribute key="areaEffect" value="mortarea" />
 		</defense>
 	</defenses>
-	<immunities>
-		<immunity physical="1" />
-		<immunity energy="1" />
-		<immunity fire="1" />
-		<immunity poison="1" />
-		<immunity ice="1" />
-		<immunity holy="1" />
-		<immunity death="1" />
-		<immunity lifedrain="1" />
-		<immunity paralyze="1" />
-		<immunity drown="1" />
-		<immunity invisible="1" />
-	</immunities>
 	<voices interval="5000" chance="10">
 		<voice sentence="You can't have my treasures!" />
 		<voice sentence="Hit me one more time!" />
@@ -46,4 +37,24 @@
 		<voice sentence="Do you really want to hurt me?" />
 		<voice sentence="Bring it on!" />
 	</voices>
+	<loot>
+		<item name="candy" countmin="3" countmax="3" chance="100000" />
+		<item id="6571" chance="4060" /><!-- Surprise Bag (red) -->
+		<item id="6570" chance="51832" /><!-- Surprise Bag (blue) -->
+		<item name="cookie" countmin="5" countmax="5" chance="50758" />
+		<item name="winterberry liquor" chance="14225" />
+		<item name="meringue cake" chance="10269" />
+		<item name="party cake" chance="7492" />
+		<item name="bar of chocolate" chance="6481" />
+		<item name="pinata" chance="6313" />
+		<item id="27617" chance="5051" /><!-- costume bag (retro) -->
+		<item name="festive backpack" chance="4209" />
+		<item name="chocolatey dragon scale legs" chance="2778" />
+		<item name="ferumbras' candy hat" chance="2441" />
+		<item name="doll" chance="1684" />
+		<item name="ferumbras puppet" chance="168" />
+		<item id="2355" chance="84" /><!-- stuffed dragon -->
+		<item name="toy mouse" chance="84" />
+		<item name="piggy bank" chance="50000" /><!-- unknown loot chance -->
+	</loot>
 </monster>
