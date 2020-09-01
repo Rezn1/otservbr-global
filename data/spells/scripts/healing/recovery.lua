@@ -8,6 +8,8 @@ condition:setParameter(CONDITION_PARAM_BUFF_SPELL, 1)
 condition:setParameter(CONDITION_PARAM_TICKS, 1 * 60 * 1000)
 condition:setParameter(CONDITION_PARAM_HEALTHGAIN, 20)
 condition:setParameter(CONDITION_PARAM_HEALTHTICKS, 3000)
+condition:setParameter(CONDITION_PARAM_DISPELTYPE, CONDITION_PARALYZE)
+condition:setParameter(CONDITION_PARAM_DISPELTICKS, 3000)
 combat:addCondition(condition)
 
 function onCastSpell(creature, var)
