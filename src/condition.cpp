@@ -731,6 +731,7 @@ bool ConditionRegeneration::executeCondition(Creature* creature, int32_t interva
 {
 	internalHealthTicks += interval;
 	internalManaTicks += interval;
+  internalDispelTicks += interval;
   Player* player = creature->getPlayer();
 
 	if (creature->getZone() != ZONE_PROTECTION) {
@@ -769,6 +770,11 @@ bool ConditionRegeneration::executeCondition(Creature* creature, int32_t interva
 			internalManaTicks = 0;
 			creature->changeMana(manaGain);
 		}
+
+    if (internalDispelTicks >= dispelTicks) {
+      internalDispelTicks = 0;
+      creature->removeCombatCondition(dispelType);
+    }
 	}
   else if (player) {//n
     if (player->getPzRegenHealth() && internalHealthTicks >= healthTicks) {
@@ -797,6 +803,10 @@ bool ConditionRegeneration::setParam(ConditionParam_t param, int32_t value)
 			healthTicks = value;
 			return true;
 
+    case CONDITION_PARAM_DISPELTICKS:
+      dispelTicks = value;
+      return true;
+
 		case CONDITION_PARAM_MANAGAIN:
 			manaGain = value;
 			return true;
@@ -804,6 +814,10 @@ bool ConditionRegeneration::setParam(ConditionParam_t param, int32_t value)
 		case CONDITION_PARAM_MANATICKS:
 			manaTicks = value;
 			return true;
+    
+    case CONDITION_PARAM_DISPELTYPE:
+      dispelType = static_cast<ConditionType_t>(value);
+      return true;
 
 		default:
 			return ret;

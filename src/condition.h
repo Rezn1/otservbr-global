@@ -201,11 +201,14 @@ class ConditionRegeneration final : public ConditionGeneric
 	private:
 		uint32_t internalHealthTicks = 0;
 		uint32_t internalManaTicks = 0;
+    uint32_t internalDispelTicks = 0;
 
 		uint32_t healthTicks = 1000;
 		uint32_t manaTicks = 1000;
+    uint32_t dispelTicks = 1000;
 		uint32_t healthGain = 0;
 		uint32_t manaGain = 0;
+    ConditionType_t dispelType = CONDITION_NONE;
 };
 
 class ConditionSoul final : public ConditionGeneric
