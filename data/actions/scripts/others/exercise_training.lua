@@ -15,7 +15,7 @@ local skills = {
 
 local houseDummies = {32143, 32144, 32145, 32146, 32147, 32148}
 local freeDummies = {32142, 32149}
-local skillRate = configManager.getNumber(configKeys.RATE_SKILL)
+local skillRate = configManager.getNumber(configKeys.RATE_SKILL)*7
 local magicRate = configManager.getNumber(configKeys.RATE_MAGIC)
 
 local function start_train(pid,start_pos,itemid,fpos, bonusDummy, dummyId)
@@ -56,6 +56,7 @@ local function start_train(pid,start_pos,itemid,fpos, bonusDummy, dummyId)
                         else
                             exercise:remove(1)
                             player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training weapon vanished.")
+							print("\a")
                             stopEvent(training)
                             player:setStorageValue(Storage.isTraining,0)
                         end
