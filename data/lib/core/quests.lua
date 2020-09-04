@@ -1369,9 +1369,9 @@ if not Quests then
 				[36] = {
 					name = "Edron City - Elite Hunting: Trolls",
 					storageid = 1500 + 1,
-					missionId = 116, startvalue = 1,
+					missionId = 116,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/100 Trolls.", (math.max(player:getStorageValue(65001), 0)))
 					end
@@ -1379,9 +1379,9 @@ if not Quests then
 				[37] = {
 					name = "Edron City - Elite Hunting: Goblins",
 					storageid = 1500 + 2,
-					missionId = 117, startvalue = 1,
+					missionId = 117,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/150 Goblins.", (math.max(player:getStorageValue(65002), 0)))
 					end
@@ -1389,9 +1389,9 @@ if not Quests then
 				[38] = {
 					name = "Paw and Fur: Crocodiles",
 					storageid = 1500 + 3,
-					missionId = 120, startvalue = 1,
+					missionId = 120,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 crocodiles.", (math.max(player:getStorageValue(65003), 0)))
 					end
@@ -1399,9 +1399,9 @@ if not Quests then
 				[39] = {
 					name = "Paw and Fur: Badgers",
 					storageid = 1500 + 4,
-					missionId = 121, startvalue = 1,
+					missionId = 121,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 badgers.", (math.max(player:getStorageValue(65004), 0)))
 					end
@@ -1409,9 +1409,9 @@ if not Quests then
 				[40] = {
 					name = "Paw and Fur: Tarantulas",
 					storageid = 1500 + 5,
-					missionId = 122, startvalue = 1,
+					missionId = 122,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 tarantulas.", (math.max(player:getStorageValue(65005), 0)))
 					end
@@ -1419,9 +1419,9 @@ if not Quests then
 				[41] = {
 					name = "Paw and Fur: Carniphilas",
 					storageid = 1500 + 6,
-					missionId = 123, startvalue = 1,
+					missionId = 123,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/150 carniphilas.", (math.max(player:getStorageValue(65006), 0)))
 					end
@@ -1429,9 +1429,9 @@ if not Quests then
 				[42] = {
 					name = "Paw and Fur: Stone Golems",
 					storageid = 1500 + 7,
-					missionId = 124, startvalue = 1,
+					missionId = 124,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/200 stone golems.", (math.max(player:getStorageValue(65007), 0)))
 					end
@@ -1439,9 +1439,9 @@ if not Quests then
 				[43] = {
 					name = "Paw and Fur: Mammoths",
 					storageid = 1500 + 8,
-					missionId = 125, startvalue = 1,
+					missionId = 125,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 mammoths.", (math.max(player:getStorageValue(65008), 0)))
 					end
@@ -1449,9 +1449,9 @@ if not Quests then
 				[44] = {
 					name = "Paw and Fur: Gnarlhounds",
 					storageid = 1500 + 9,
-					missionId = 126, startvalue = 1,
+					missionId = 126,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 gnarlhounds.", (math.max(player:getStorageValue(65009), 0)))
 					end
@@ -1459,9 +1459,9 @@ if not Quests then
 				[45] = {
 					name = "Paw and Fur: Terramites",
 					storageid = 1500 + 10,
-					missionId = 127, startvalue = 1,
+					missionId = 127,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 terramites.", (math.max(player:getStorageValue(65010), 0)))
 					end
@@ -1471,7 +1471,6 @@ if not Quests then
 					storageid = 1500 + 11,
 					missionId = 128, startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 apes.", (math.max(player:getStorageValue(65011), 0)))
 					end
@@ -1479,9 +1478,9 @@ if not Quests then
 				[47] = {
 					name = "Paw and Fur: Thornback Tortoises",
 					storageid = 1500 + 12,
-					missionId = 129, startvalue = 1,
+					missionId = 129,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format(
 							"You already hunted %d/300 thornback tortoises.",
@@ -1492,9 +1491,9 @@ if not Quests then
 				[48] = {
 					name = "Paw and Fur: Gargoyles",
 					storageid = 1500 + 13,
-					missionId = 130, startvalue = 1,
+					missionId = 130,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 gargoyles.", (math.max(player:getStorageValue(65013), 0)))
 					end
@@ -1502,9 +1501,9 @@ if not Quests then
 				[49] = {
 					name = "Paw and Fur: Ice Golems",
 					storageid = 1500 + 14,
-					missionId = 131, startvalue = 1,
+					missionId = 131,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 ice golems.", (math.max(player:getStorageValue(65014), 0)))
 					end
@@ -1512,9 +1511,9 @@ if not Quests then
 				[50] = {
 					name = "Paw and Fur: Quara Scouts",
 					storageid = 1500 + 15,
-					missionId = 132, startvalue = 1,
+					missionId = 132,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/400 quara scouts.", (math.max(player:getStorageValue(65015), 0)))
 					end
@@ -1522,9 +1521,9 @@ if not Quests then
 				[51] = {
 					name = "Paw and Fur: Mutated Rats",
 					storageid = 1500 + 16,
-					missionId = 133, startvalue = 1,
+					missionId = 133,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/400 mutated rats.", (math.max(player:getStorageValue(65016), 0)))
 					end
@@ -1532,9 +1531,9 @@ if not Quests then
 				[52] = {
 					name = "Paw and Fur: Ancient Scarabs",
 					storageid = 1500 + 17,
-					missionId = 134, startvalue = 1,
+					missionId = 134,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/250 ancient scarabs.", (math.max(player:getStorageValue(65017), 0)))
 					end
@@ -1542,9 +1541,9 @@ if not Quests then
 				[53] = {
 					name = "Paw and Fur: Wyverns",
 					storageid = 1500 + 18,
-					missionId = 135, startvalue = 1,
+					missionId = 135,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 wyverns.", (math.max(player:getStorageValue(65018), 0)))
 					end
@@ -1552,9 +1551,9 @@ if not Quests then
 				[54] = {
 					name = "Paw and Fur: Lancer Beetles",
 					storageid = 1500 + 19,
-					missionId = 136, startvalue = 1,
+					missionId = 136,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 lancer beetles.", (math.max(player:getStorageValue(65019), 0)))
 					end
@@ -1562,9 +1561,9 @@ if not Quests then
 				[55] = {
 					name = "Paw and Fur: Wailing Widows",
 					storageid = 1500 + 20,
-					missionId = 137, startvalue = 1,
+					missionId = 137,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/400 wailing widows.", (math.max(player:getStorageValue(65020), 0)))
 					end
@@ -1572,9 +1571,9 @@ if not Quests then
 				[56] = {
 					name = "Paw and Fur: Killer Caimans",
 					storageid = 1500 + 21,
-					missionId = 138, startvalue = 1,
+					missionId = 138,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/250 killer caimans.", (math.max(player:getStorageValue(65021), 0)))
 					end
@@ -1582,9 +1581,9 @@ if not Quests then
 				[57] = {
 					name = "Paw and Fur: Bonebeasts",
 					storageid = 1500 + 22,
-					missionId = 139, startvalue = 1,
+					missionId = 139,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 bonebeasts.", (math.max(player:getStorageValue(65022), 0)))
 					end
@@ -1592,9 +1591,9 @@ if not Quests then
 				[58] = {
 					name = "Paw and Fur: Crystal Spiders",
 					storageid = 1500 + 23,
-					missionId = 140, startvalue = 1,
+					missionId = 140,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 crystal spiders.", (math.max(player:getStorageValue(65023), 0)))
 					end
@@ -1602,9 +1601,9 @@ if not Quests then
 				[59] = {
 					name = "Paw and Fur: Mutated Tigers",
 					storageid = 1500 + 24,
-					missionId = 141, startvalue = 1,
+					missionId = 141,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 mutated tigers.", (math.max(player:getStorageValue(65024), 0)))
 					end
@@ -1612,9 +1611,9 @@ if not Quests then
 				[60] = {
 					name = "Paw and Fur: Underwater Quara",
 					storageid = 1500 + 25,
-					missionId = 142, startvalue = 1,
+					missionId = 142,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/600 underwater quara.", (math.max(player:getStorageValue(65025), 0)))
 					end
@@ -1622,9 +1621,9 @@ if not Quests then
 				[61] = {
 					name = "Paw and Fur: Giant Spiders",
 					storageid = 1500 + 26,
-					missionId = 143, startvalue = 1,
+					missionId = 143,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/500 giant spiders.", (math.max(player:getStorageValue(65026), 0)))
 					end
@@ -1632,9 +1631,9 @@ if not Quests then
 				[62] = {
 					name = "Paw and Fur: Werewolves",
 					storageid = 1500 + 27,
-					missionId = 144, startvalue = 1,
+					missionId = 144,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 werewolves.", (math.max(player:getStorageValue(65027), 0)))
 					end
@@ -1642,9 +1641,9 @@ if not Quests then
 				[63] = {
 					name = "Paw and Fur: Nightmares",
 					storageid = 1500 + 28,
-					missionId = 145, startvalue = 1,
+					missionId = 145,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/400 nightmares.", (math.max(player:getStorageValue(65028), 0)))
 					end
@@ -1652,9 +1651,9 @@ if not Quests then
 				[64] = {
 					name = "Paw and Fur: Hellspawns",
 					storageid = 1500 + 29,
-					missionId = 146, startvalue = 1,
+					missionId = 146,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/600 hellspawns.", (math.max(player:getStorageValue(65029), 0)))
 					end
@@ -1662,9 +1661,9 @@ if not Quests then
 				[65] = {
 					name = "Paw and Fur: High Class Lizards",
 					storageid = 1500 + 30,
-					missionId = 147, startvalue = 1,
+					missionId = 147,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format(
 							"You already hunted %d/800 high class lizards.",
@@ -1675,9 +1674,9 @@ if not Quests then
 				[66] = {
 					name = "Paw and Fur: Stampors",
 					storageid = 1500 + 31,
-					missionId = 148, startvalue = 1,
+					missionId = 148,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/600 stampors.", (math.max(player:getStorageValue(65031), 0)))
 					end
@@ -1685,9 +1684,9 @@ if not Quests then
 				[67] = {
 					name = "Paw and Fur: Brimstone Bugs",
 					storageid = 1500 + 32,
-					missionId = 149, startvalue = 1,
+					missionId = 149,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/500 brimstone bugs.", (math.max(player:getStorageValue(65032), 0)))
 					end
@@ -1695,9 +1694,9 @@ if not Quests then
 				[68] = {
 					name = "Paw and Fur: Mutated Bats",
 					storageid = 1500 + 33,
-					missionId = 150, startvalue = 1,
+					missionId = 150,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/400 mutated bats.", (math.max(player:getStorageValue(65033), 0)))
 					end
@@ -1705,9 +1704,9 @@ if not Quests then
 				[69] = {
 					name = "Paw and Fur: Hydras",
 					storageid = 1500 + 34,
-					missionId = 151, startvalue = 1,
+					missionId = 151,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/650 hydras.", (math.max(player:getStorageValue(65034), 0)))
 					end
@@ -1715,9 +1714,9 @@ if not Quests then
 				[70] = {
 					name = "Paw and Fur: Serpent Spawns",
 					storageid = 1500 + 35,
-					missionId = 152, startvalue = 1,
+					missionId = 152,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/800 serpent spawns.", (math.max(player:getStorageValue(65035), 0)))
 					end
@@ -1725,9 +1724,9 @@ if not Quests then
 				[71] = {
 					name = "Paw and Fur: Medusas",
 					storageid = 1500 + 36,
-					missionId = 153, startvalue = 1,
+					missionId = 153,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/500 medusas.", (math.max(player:getStorageValue(65036), 0)))
 					end
@@ -1735,9 +1734,9 @@ if not Quests then
 				[72] = {
 					name = "Paw and Fur: Behemoths",
 					storageid = 1500 + 37,
-					missionId = 154, startvalue = 1,
+					missionId = 154,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/700 behemoths.", (math.max(player:getStorageValue(65037), 0)))
 					end
@@ -1745,9 +1744,9 @@ if not Quests then
 				[73] = {
 					name = "Paw and Fur: Sea Serpents and Young Sea Serpents",
 					storageid = 1500 + 38,
-					missionId = 155, startvalue = 1,
+					missionId = 155,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format(
 							"You already hunted %d/900 sea serpents and young sea serpents.",
@@ -1758,9 +1757,9 @@ if not Quests then
 				[74] = {
 					name = "Paw and Fur: Hellhounds",
 					storageid = 1500 + 39,
-					missionId = 156, startvalue = 1,
+					missionId = 156,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/250 hellhounds.", (math.max(player:getStorageValue(65039), 0)))
 					end
@@ -1768,9 +1767,9 @@ if not Quests then
 				[75] = {
 					name = "Paw and Fur: Ghastly Dragons",
 					storageid = 1500 + 40,
-					missionId = 157, startvalue = 1,
+					missionId = 157,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/500 ghastly dragons.", (math.max(player:getStorageValue(65040), 0)))
 					end
@@ -1778,9 +1777,9 @@ if not Quests then
 				[76] = {
 					name = "Paw and Fur: Drakens",
 					storageid = 1500 + 41,
-					missionId = 158, startvalue = 1,
+					missionId = 158,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/900 drakens.", (math.max(player:getStorageValue(65041), 0)))
 					end
@@ -1788,9 +1787,9 @@ if not Quests then
 				[77] = {
 					name = "Paw and Fur: Destroyers",
 					storageid = 1500 + 42,
-					missionId = 159, startvalue = 1,
+					missionId = 159,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/650 destroyers.", (math.max(player:getStorageValue(65042), 0)))
 					end
@@ -1798,9 +1797,9 @@ if not Quests then
 				[78] = {
 					name = "Paw and Fur: Undead Dragons",
 					storageid = 1500 + 43,
-					missionId = 160, startvalue = 1,
+					missionId = 160,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/400 undead dragons.", (math.max(player:getStorageValue(65043), 0)))
 					end
@@ -1808,9 +1807,9 @@ if not Quests then
 				[79] = {
 					name = "Paw and Fur: Demons",
 					storageid = 1500 + 44,
-					missionId = 161, startvalue = 1,
+					missionId = 161,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/6666 demons.", (math.max(player:getStorageValue(65044), 0)))
 					end
@@ -1818,9 +1817,9 @@ if not Quests then
 				[80] = {
 					name = "Paw and Fur: Green Djinns or Efreets",
 					storageid = 1500 + 45,
-					missionId = 162, startvalue = 1,
+					missionId = 162,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format(
 							"You already hunted %d/500 green djinns or efreets.",
@@ -1831,9 +1830,9 @@ if not Quests then
 				[81] = {
 					name = "Paw and Fur: Blue Djinns or Marids",
 					storageid = 1500 + 46,
-					missionId = 163, startvalue = 1,
+					missionId = 163,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format(
 							"You already hunted %d/500 blue djinns or marids.",
@@ -1844,9 +1843,9 @@ if not Quests then
 				[82] = {
 					name = "Paw and Fur: Pirates",
 					storageid = 1500 + 47,
-					missionId = 164, startvalue = 1,
+					missionId = 164,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/3000 pirates.", (math.max(player:getStorageValue(65047), 0)))
 					end
@@ -1854,9 +1853,9 @@ if not Quests then
 				[83] = {
 					name = "Paw and Fur: Pirates Second",
 					storageid = 1500 + 48,
-					missionId = 165, startvalue = 1,
+					missionId = 165,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/3000 pirates.", (math.max(player:getStorageValue(65048), 0)))
 					end
@@ -1864,9 +1863,9 @@ if not Quests then
 				[84] = {
 					name = "Turmoil of War",
 					storageid = 1500 + 49,
-					missionId = 166, startvalue = 1,
+					missionId = 166,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format(
 							"Budrik asked you to kill 5000 minotaurs for him. You already killed %d minotaurs.",
@@ -1877,9 +1876,9 @@ if not Quests then
 				[85] = {
 					name = "Paw and Fur: Necromancers and Priestess",
 					storageid = 1500 + 50,
-					missionId = 167, startvalue = 1,
+					missionId = 167,
+					startvalue = 1,
 					endvalue = 2,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format(
 							"You already hunted %d/4000 necromancers and priestess.",
