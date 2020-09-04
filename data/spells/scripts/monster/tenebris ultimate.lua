@@ -76,6 +76,12 @@ local function delayedCastSpell(cid, var)
 	return
 end
 
+local root = Combat()
+local speed = Condition(CONDITION_PARALYZE)
+speed:setParameter(CONDITION_PARAM_TICKS, 4500)
+speed:setFormula(-1.0, 0, -1.0, 0)
+root:addCondition(speed)
+
 function onCastSpell(creature, var)
 	local specs, spec = Game.getSpectators(Position(32912, 31599, 14), false, false, 12, 12, 12, 12)
 	for i = 1, #specs do
@@ -83,10 +89,11 @@ function onCastSpell(creature, var)
 		if spec:isPlayer() then
 			spec:teleportTo(Position(32912, 31599, 14))
 		elseif spec:getName():lower() == 'lady tenebris' then
-			spec:teleportTo(Position(32912, 31599, 14))
+			spec:teleportTo(Position(32912, 31597, 14))
+			root:execute(spec, var)
 		end
 	end
 	creature:say("LADY TENEBRIS BEGINS TO CHANNEL A POWERFULL SPELL! TAKE COVER!", TALKTYPE_MONSTER_YELL)
-	addEvent(delayedCastSpell, 900, creature:getId(), var)
+	addEvent(delayedCastSpell, 4000, creature:getId(), var)
 	return true
 end
