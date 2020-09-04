@@ -40,7 +40,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 					playerTile:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 					playerTile:setStorageValue(Storage.ForgottenKnowledge.HorrorTimer, os.time() + 20 * 3600)
 				else
-					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need to wait a while, recently someone challenge Frozen Horror.")
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need to wait a while, recently someone challenged Frozen Horror.")
 					return true
 				end
 			end
