@@ -42505,8 +42505,7 @@
 	<item id="32142" article="an" name="exercise dummy">
 		<attribute key="description" value="You can train your skills by using training weapons with this exercise dummy." />
 	</item>
-	<item id="32143" article="a" name="
-	exercise dummy">
+	<item id="32143" article="a" name="exercise dummy">
 		<attribute key="description" value="You can train your skills by using training weapons with this exercise dummy." />
 		<attribute key="rotateTo" value="32144" />
 		<attribute key="wrapableTo" value="26054" />
