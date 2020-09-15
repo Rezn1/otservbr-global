@@ -13,6 +13,8 @@ local skills = {
     [32129] = {id=SKILL_MAGLEVEL,voc=1,range=CONST_ANI_FIRE} -- SORCERER
 }
 
+local melee = {SKILL_SWORD, SKILL_AXE, SKILL_CLUB}
+
 local houseDummies = {32143, 32144, 32145, 32146, 32147, 32148}
 local freeDummies = {32142, 32149}
 local skillRate = configManager.getNumber(configKeys.RATE_SKILL)*7
@@ -33,19 +35,18 @@ local function start_train(pid,start_pos,itemid,fpos, bonusDummy, dummyId)
                             exercise:setAttribute(ITEM_ATTRIBUTE_CHARGES,(charges_n-1))
 
                             local voc = player:getVocation()
-
+							local bonus = bonusDummy and 1 or 1.1
                             if skills[itemid].id == SKILL_MAGLEVEL then
-                                if not bonusDummy then
-                                    player:addManaSpent(math.ceil(500*magicRate))
-                                else
-                                    player:addManaSpent(math.ceil(500*magicRate)*1.1) -- 10%
-                                end
+                                player:addManaSpent(math.ceil(500*magicRate)*bonus)
                             else
-                                if not bonusDummy then
-                                    player:addSkillTries(skills[itemid].id, 1*skillRate)
-                                else
-                                    player:addSkillTries(skills[itemid].id, (1*skillRate)*1.1) -- 10%
-                                end
+								if isInArray(melee ,skills[itemid].id) then
+									player:addSkillTries(SKILL_SWORD, 1*skillRate*bonus)
+									player:addSkillTries(SKILL_AXE, 1*skillRate*bonus)
+									player:addSkillTries(SKILL_CLUB, 1*skillRate*bonus)
+									player:addSkillTries(SKILL_SHIELD, 1*skillRate*bonus)
+								else
+									player:addSkillTries(skills[itemid].id, 1*skillRate*bonus)
+								end
                             end
                                 fpos:sendMagicEffect(CONST_ME_HITAREA)
                             if skills[itemid].range then
