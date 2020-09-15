@@ -2,12 +2,8 @@ local storageSet = TalkAction("/set")
 
 function storageSet.onSay(cid, words, param)
 	local player = Player(cid)
-	if not player:getGroup():getAccess() then
+	if not player:getGroup():getAccess() and player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return true
-	end
-
-	if player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return false
 	end
 
 	local split = param:split(",")
@@ -27,8 +23,20 @@ function storageSet.onSay(cid, words, param)
 	split[3] = split[3]:gsub("^%s*(.-)$", "%1")
 	local ch = split[2]
 	local ch2 = split[3]
-	setPlayerStorageValue(getPlayerByName(split[1]), tonumber(ch), tonumber(ch2))
-	doPlayerSendTextMessage(cid, MESSAGE_EVENT_ADVANCE, "The storage with id: "..tonumber(ch).." from player "..split[1].." is now: "..ch2..".")
+	local storage = tonumber(ch)
+	if storage == nil then
+		ch = ch:gsub("^Storage.(.-)$", "%1")
+		ch = ch:split(".")
+		storage = Storage
+		for i=1, #ch do
+			storage = storage[ch[i]]
+			if storage == nil or (type(storage)~="table" and i~=#ch) then
+				return false
+			end
+		end
+	end
+	setPlayerStorageValue(getPlayerByName(split[1]), storage, tonumber(ch2))
+	doPlayerSendTextMessage(cid, MESSAGE_EVENT_ADVANCE, "The storage with id: "..storage.." from player "..split[1].." is now: "..ch2..".")
 	return false
 end
 
