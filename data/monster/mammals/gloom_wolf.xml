@@ -31,10 +31,11 @@
 		<element deathPercent="35" />
 	</elements>
 	<loot>
-	    <item name="ham" chance="20120" />
-		<item name="wolf tooth chain" chance="2000" />
-	    <item name="gold coin" countmax="48" chance="65000" />
-		<item name="meat" countmax="2" chance="55000" />
-		<item name="wolf paw" chance="980" />
+		<tiem name="gold coin" countmax="15" chance="66560" />
+	    <item name="ham" chance="39590" />
+		<item name="wolf tooth chain" chance="7540" />
+		<item name="meat" countmax="2" chance="40590" />
+		<item name="wolf paw" chance="3140" />
+		<item name="gloom wolf fur" chance="8010" />
 	</loot>
 </monster>
