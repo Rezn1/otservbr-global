@@ -460,7 +460,8 @@ void Player::addSkillAdvance(skills_t skill, uint64_t count)
 {
 	uint64_t currReqTries = vocation->getReqSkillTries(skill, skills[skill].level);
 	uint64_t nextReqTries = vocation->getReqSkillTries(skill, skills[skill].level + 1);
-	if (currReqTries >= nextReqTries && currReqTries>70000000) {
+	if (currReqTries >= nextReqTries && currReqTries>0x70000000) {
+    std::cout << "aaaaa" << std::endl;
 		//player has reached max skill
 		return;
 	}

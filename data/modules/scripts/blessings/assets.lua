@@ -17,11 +17,11 @@ Blessings.All = {
 
 
 Blessings.LossPercent = {
-	[0] = {item = 100, skill = 0},
-	[1] = {item = 70, skill = 8},
-	[2] = {item = 45, skill = 16},
-	[3] = {item = 25, skill = 24},
-	[4] = {item = 10, skill = 32},
+	[0] = {item = 0, skill = 0},
+	[1] = {item = 0, skill = 8},
+	[2] = {item = 0, skill = 16},
+	[3] = {item = 0, skill = 24},
+	[4] = {item = 0, skill = 32},
 	[5] = {item = 0, skill = 40},
 	[6] = {item = 0, skill = 48},
 	[7] = {item = 0, skill = 56},

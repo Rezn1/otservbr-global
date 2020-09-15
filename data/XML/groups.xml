@@ -13,6 +13,7 @@
 			<flag cantalkredprivate="1" />
 			<flag cantalkredchannel="1" />
 			<flag cannotbemuted="1" />
+			<flag ignoreweaponcheck="1" />
 		</flags>
 	</group>
 	<group id="4" name="gamemaster" access="1" maxdepotitems="0" maxvipentries="200">

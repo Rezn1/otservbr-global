@@ -1,6 +1,6 @@
 local combat = {}
 
-for i = 20, 40 do
+for i = 10, 25 do
 	combat[i] = Combat()
 	combat[i]:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_HITAREA)
 
@@ -17,5 +17,5 @@ for i = 20, 40 do
 end
 
 function onCastSpell(creature, var)
-	return combat[math.random(20, 40)]:execute(creature, var)
+	return combat[math.random(10, 25)]:execute(creature, var)
 end
