@@ -42,12 +42,12 @@
 	</vocation>
 	<vocation id="4" clientid="1" name="Knight" description="a knight" gaincap="30" gainhp="15" gainmana="5" gainhpticks="6" gainhpamount="1" gainmanaticks="4" gainmanaamount="2" manamultiplier="1.02" attackspeed="2000" basespeed="220" soulmax="100" gainsoulticks="120" fromvoc="4">
 		<formula meleeDamage="1.0" distDamage="1.0" defense="1.0" armor="1.0" />
-		<skill id="0" multiplier="1.01" />
-		<skill id="1" multiplier="1.01" />
-		<skill id="2" multiplier="1.01" />
-		<skill id="3" multiplier="1.01" />
+		<skill id="0" multiplier="1.002" />
+		<skill id="1" multiplier="1.002" />
+		<skill id="2" multiplier="1.002" />
+		<skill id="3" multiplier="1.002" />
 		<skill id="4" multiplier="1.014" />
-		<skill id="5" multiplier="1.02" />
+		<skill id="5" multiplier="1.002" />
 		<skill id="6" multiplier="1.1" />
 	</vocation>
 	<vocation id="5" clientid="3" name="Master Sorcerer" description="a master sorcerer" gaincap="15" gainhp="10" gainmana="25" gainhpticks="12" gainhpamount="1" gainmanaticks="2" gainmanaamount="2" manamultiplier="1.01" attackspeed="2000" basespeed="220" soulmax="200" gainsoulticks="15" fromvoc="1">
@@ -82,12 +82,12 @@
 	</vocation>
 	<vocation id="8" clientid="1" name="Elite Knight" description="an elite knight" gaincap="30" gainhp="15" gainmana="5" gainhpticks="4" gainhpamount="1" gainmanaticks="3" gainmanaamount="2" manamultiplier="1.02" attackspeed="2000" basespeed="220" soulmax="200" gainsoulticks="15" fromvoc="4">
 		<formula meleeDamage="1.0" distDamage="1.0" defense="1.0" armor="1.0" />
-		<skill id="0" multiplier="1.0055" />
-		<skill id="1" multiplier="1.0055" />
-		<skill id="2" multiplier="1.0055" />
-		<skill id="3" multiplier="1.0055" />
+		<skill id="0" multiplier="1.002" />
+		<skill id="1" multiplier="1.002" />
+		<skill id="2" multiplier="1.002" />
+		<skill id="3" multiplier="1.002" />
 		<skill id="4" multiplier="1.014" />
-		<skill id="5" multiplier="1.0055" />
+		<skill id="5" multiplier="1.002" />
 		<skill id="6" multiplier="1.1" />
 	</vocation>
 	<!-- Dawnport Vocations -->
