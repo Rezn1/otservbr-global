@@ -48,13 +48,7 @@
 		</defense>
 	</defenses>
 	<elements>
-		<element energyPercent="80" />
-		<element holyPercent="80" />
-		<element earthPercent="100" />
-		<element deathPercent="80" />
-		<element firePercent="80" />
-		<element physicalPercent="80" />
-		<element icePercent="80" />
+		<element deathPercent="100" />
 	</elements>
 	<loot>
 		<item id="2148" countmax="165" chance="50320" /><!-- gold coin -->

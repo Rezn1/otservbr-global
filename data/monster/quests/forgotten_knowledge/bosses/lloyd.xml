@@ -37,11 +37,7 @@
 		<defense name="healing" interval="2000" chance="15" min="180" max="250" />
 	</defenses>
 	<elements>
-		<element physicalPercent="0" />
 		<element deathPercent="50" />
-		<element energyPercent="0" />
-		<element earthPercent="0" />
-		<element icePercent="0" />
 		<element holyPercent="50" />
 	</elements>
 	<immunities>
