@@ -21,7 +21,7 @@ Blessings.Credits = {
 
 Blessings.Config = {
 	AdventurerBlessingLevel = 0, -- Free full bless until level
-	HasToF = false, -- Enables/disables twist of fate
+	HasToF = true, -- Enables/disables twist of fate
 	InquisitonBlessPriceMultiplier = 1.1, -- Bless price multiplied by henricus
 	SkulledDeathLoseStoreItem = true, -- Destroy all items on store when dying with red/blackskull
 	InventoryGlowOnFiveBless = true, -- Glow in yellow inventory items when the player has 5 or more bless,
@@ -284,7 +284,7 @@ end
 Blessings.ClearBless = function(player, killer, currentBless)
 	Blessings.DebugPrint(#currentBless, "ClearBless #currentBless")
 	local hasToF = Blessings.Config.HasToF and player:hasBlessing(1) or false
-	if hasToF and killer (killer:isPlayer() or (killer:getMaster() and killer:getMaster():isPlayer())) then -- TODO add better check if its pvp or pve
+	if hasToF and killer and (killer:isPlayer() or (killer:getMaster() and killer:getMaster():isPlayer())) then -- TODO add better check if its pvp or pve
 		player:removeBlessing(1)
 		return
 	end
@@ -341,14 +341,15 @@ Blessings.PlayerDeath = function(player, corpse, killer)
 
 	if haveSkull then  -- lose all bless + drop all items
 		Blessings.DropLoot(player, corpse, 100, true)
-	elseif #curBless < 5 and not hasAol then -- lose all items
+	elseif Blessings.LossPercent[#curBless].item > 0 and hasAol then
+		if not (hasToF and killer and (killer:isPlayer() or (killer:getMaster() and killer:getMaster():isPlayer()))) then
+			player:removeItem(ITEM_AMULETOFLOSS, 1, -1, false)
+		end
+	elseif Blessings.LossPercent[#curBless].item > 0 then
 		local equipLoss = Blessings.LossPercent[#curBless].item
 		Blessings.DropLoot(player, corpse, equipLoss)
-	elseif #curBless < 5 and hasAol and not hasToF then
-		player:removeItem(ITEM_AMULETOFLOSS, 1, -1, false)
 	end
 	--Blessings.ClearBless(player, killer, curBless) IMPLEMENTED IN SOURCE BECAUSE THIS WAS HAPPENING BEFORE SKILL/EXP CALCULATIONS
-
 
 	if not player:getSlotItem(CONST_SLOT_BACKPACK) then
 		player:addItem(ITEM_BAG, 1, false, CONST_SLOT_BACKPACK)
